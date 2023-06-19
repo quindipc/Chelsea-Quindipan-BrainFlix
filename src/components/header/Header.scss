@@ -1,0 +1,60 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1.5rem 1rem; //ADD VARIABLE -- $padding-headlines-mobile
+  width: 100%;
+
+  &__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10rem; //CHANGE
+    // padding: 1rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+    &--search {
+      height: 2.25rem; // ADD VARIABLE -- $mobile-form-height
+      width: 15rem; //MIN WIDTH -- $mobile-form-width
+      padding: .5625rem .25rem .5625rem 2.5rem;
+    //   margin: 1rem;
+      background-color: #FFFFFF; // CHANGE
+      border: 1px solid #e1e1e1; // ADD VARIABLE $mercury
+      border-radius: 0.25rem;
+      box-shadow: none;
+      display: block;
+      background: url("../../assets/images/icons/search.svg") no-repeat 13px;
+    }
+
+    &--avatar {
+      border-radius: 50%;
+      object-fit: cover;
+      width: 2.25rem; // VARIABLE -- $mobile-avatar-width
+      height: 2.25rem; // VARIABLE -- $mobile-avatar-height
+    }
+    &--upload {
+      //ADD BUTTON RESETS -- MIXIN?
+      background-image: url("../../assets/images/icons/upload.svg");
+      background-repeat: no-repeat;
+      background-position: left center;
+      padding: 0.75rem;
+      background-color: #0095ff; // ADD VARIABLE -- $BrainFlix-Blue
+      border: 1px solid #e1e1e1; //ADD VARIABLE $mercury
+      color: #FFFFFF; //ADD VARIABLE $white
+      border-radius: 0.25rem; //ADD VARIABLE $mobile-border-radius
+      box-shadow: none;
+    }
+  }
+
+  &__search-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem;
+  }
+}
