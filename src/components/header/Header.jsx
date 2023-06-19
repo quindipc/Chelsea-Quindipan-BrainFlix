@@ -12,12 +12,14 @@ export default function Header() {
                     alt="BrainFlix Logo"
                 />
                 <form className="header__form">
-                    <input className="header__form--search" type="text" placeholder="Search"></input>
+                    <div className="header__search-container">
+                        <input className="header__form--search" type="text" placeholder="Search"></input>
                     <img
                         className="header__form--avatar"
                         src={brainflixAvatar} 
                         alt="BrainFlix Avatar"
                     />
+                    </div>
                     <button className="header__form--upload">Upload</button>
                 </form> 
       </header>
