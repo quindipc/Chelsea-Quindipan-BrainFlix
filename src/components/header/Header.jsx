@@ -21,6 +21,11 @@ export default function Header() {
                     />
                     </div>
                     <button className="header__form--upload">Upload</button>
+                    <img
+                        className="header__form--avatar-tablet"
+                        src={brainflixAvatar} 
+                        alt="BrainFlix Avatar"
+                    />
                 </form> 
       </header>
      </>
