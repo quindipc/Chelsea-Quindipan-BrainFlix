@@ -1,0 +1,14 @@
+// Font faces
+@font-face {
+    font-family: "AvenirNextLTPro-Bold";
+    src: url("../../assets/fonts/AvenirNextLTPro-Bold.otf"), url("../../assets/fonts/alternative-files/AvenirNextLTProBold.ttf");
+    font-style: bold;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "AvenirNextLTPro-Regular";
+    src: url("../../assets/fonts/AvenirNextLTPro-Regular.otf"), url("../../assets/fonts/alternative-files/AvenirNextLTPro.ttf");
+    font-style: normal;
+    font-weight: 700;
+}
