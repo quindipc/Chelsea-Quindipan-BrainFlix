@@ -1,0 +1,77 @@
+// Media Query
+@mixin desktop {
+    @media screen and (min-width: $desktop) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (min-width: $tablet) {
+        @content;
+    }
+}
+
+// Mobile Fonts 
+@mixin page-header-mobile {
+    font-size: 24px;
+    line-height: 32px;
+    font-style: bold;
+    font-weight: 700;
+}
+@mixin section-header-mobile {
+    font-size: 12px;
+    line-height: 20px;
+    font-style: bold;
+    font-weight: 700;
+}
+@mixin subheader-mobile {
+    font-size: 13px;
+    line-height: 18px;
+    font-style: bold;
+    font-weight: 700;
+}
+@mixin body-copy-mobile {
+    font-size: 13px;
+    line-height: 18px;
+    font-style: normal;
+    font-weight: 400;
+}
+@mixin labels-buttons-mobile {
+    font-size: 10px;
+    line-height: 20px;
+    font-style: bold;
+    font-weight: 700;
+}
+
+
+// Desktop Fonts
+@mixin page-header-desktop {
+    font-size: 33px;
+    line-height: 44px;
+    font-style: bold;
+    font-weight: 700;
+}
+@mixin section-header-desktop {
+    font-size: 12px;
+    line-height: 20px;
+    font-style: bold;
+    font-weight: 700;
+}
+@mixin subheader-desktop {
+    font-size: 14px;
+    line-height: 22px;
+    font-style: bold;
+    font-weight: 700;
+}
+@mixin body-copy-desktop {
+    font-size: 14px;
+    line-height: 22px;
+    font-style: normal;
+    font-weight: 400;
+}
+@mixin labels-buttons-desktop {
+    font-size: 12px;
+    line-height: 20px;
+    font-style: bold;
+    font-weight: 700;
+}
