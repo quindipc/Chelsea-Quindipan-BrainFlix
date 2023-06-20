@@ -1,3 +1,5 @@
+@use "../../styles/partials/_variables" as *;
+
 // Media Query
 @mixin desktop {
     @media screen and (min-width: $desktop) {
