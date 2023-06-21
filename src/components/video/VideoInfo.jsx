@@ -3,6 +3,7 @@ import "./VideoInfo.scss";
 import details from "../../data/video-details.json";
 import views from "../../assets/images/icons/views.svg";
 import likes from "../../assets/images/icons/likes.svg";
+import Timestamp from "./timestamp/Timestamp";
 
 export default function VideoInfo() {
   const [detailsData, setDetailsData] = useState({});
@@ -19,11 +20,12 @@ export default function VideoInfo() {
           <h2 className="videoinfo__info videoinfo__info-channel">
             By {detailsData.channel}
           </h2>
-          <p className="videoinfo__info">{detailsData.timestamp}</p>
+          {/* Add timestamp to readable format */}
+          {/* <p className="videoinfo__info">{detailsData.timestamp}</p> */}
+          <Timestamp/>
         </div>
 
         <div className="videoinfo__container videoinfo__container--right">
-          {/* Need to convert timestamp to readable format -- reuse from bandsite */}
           <div className="videoinfo__engagement">
             <img className="videoinfo__icon" src={views} alt="views icon" />
             <p className="videoinfo__info">{detailsData.views}</p>
