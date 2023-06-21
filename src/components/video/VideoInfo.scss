@@ -8,11 +8,11 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  padding: 0 1rem .5rem;
 
   &__divider {
     border: none;
     border-top: 0.0625rem solid $mercury;
-    // margin: 0.625rem 0;
     margin: auto;
     width: 100%;
   }
@@ -26,9 +26,9 @@
   &__container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    // align-items: flex-start;
     justify-content: center;
-    padding: 0.5rem;
+    flex: 50%;
 
     @include tablet {
       display: flex;
@@ -38,18 +38,18 @@
     }
   }
 
-  &__container--left{
+  &__container--left{ 
     @include tablet {
        display: flex;
        justify-content: flex-start;
-       // margin-left: auto;
     }
 }
 &__container--right{
+  // check to see if this is this correct? 
+  // align-items: flex-end;
     @include tablet {
         display: flex;
         justify-content: flex-end;
-        flex: 1;
     }
   }
 
