@@ -2,3 +2,15 @@
 @use "../../styles/partials/_mixins" as *;
 @use "../../styles/partials/_resets" as *;
 @use "../../styles/partials/_variables" as *;
+
+
+.commentsection {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+
+        // this will take 75% of container once tablet media breakpoint hits and comments will be on the right 
+        // flex: 75%;
+    }
+}

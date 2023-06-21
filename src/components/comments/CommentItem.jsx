@@ -5,7 +5,7 @@ import "./CommentItem.scss";
 export default function CommentItem() {
   const [commentsData, setCommentData] = useState({});
 
-    // Fix this to display the comments
+  // Fix this to display the comments
   useEffect(() => {
     setCommentData(comments[0]);
   }, []);
@@ -17,13 +17,20 @@ export default function CommentItem() {
           <div className="commentitem__content">
             <div className="commentitem__avater-container">
               <div
-                className="commentform__avatar--placeholder"
+                className="commentitem__avatar"
                 alt="BrainFlix Avatar"
               />
               {/* this is not working -- need to target correct array item*/}
-              <p className="commentitem__name">{commentsData.name}</p>
+              {/* <p className="commentitem__name">{commentsData.name}</p>
               <p className="commentitem__date">{commentsData.timestamp}</p>
-              <p className="commentitem__comment">{commentsData.comment}</p>
+              <p className="commentitem__comment">{commentsData.comment}</p> */}
+              <p className="commentitem__name">PLACEHOLDER NAME</p>
+              <p className="commentitem__date">fake date</p>
+              <p className="commentitem__comment">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Architecto id deleniti natus maxime neque dicta porro nobis
+                temporibus? Beatae, aspernatur.
+              </p>
             </div>
           </div>
         </li>
