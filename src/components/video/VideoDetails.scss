@@ -2,3 +2,16 @@
 @use "../../styles/partials/_mixins" as *;
 @use "../../styles/partials/_resets" as *;
 @use "../../styles/partials/_variables" as *;
+
+.videodetails {
+
+    &__title {
+        padding: $padding-headlines-mobile;
+    }
+
+    &__description {
+        @include body-copy-mobile;
+        padding: $padding-components-mobile;
+    }
+
+}

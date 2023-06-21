@@ -3,29 +3,22 @@
 @use "../../styles/partials/_resets" as *;
 @use "../../styles/partials/_variables" as *;
 
-.videocontent {
-display:flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
-padding: $padding-headlines-mobile;
+.video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: $padding-headlines-mobile;
 
-&__container {
+  &__container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-}
+  }
 
-&__video {
-height: 250px; //CHANGE
-width: 450px; //CHANGE
-}
-
-&__title {
-    display: flex;
-    justify-content: flex-start;
-    @include page-header-mobile;
-}
-
+  &__video {
+    position: relative;
+    width: 100%;
+  }
 }

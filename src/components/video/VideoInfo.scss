@@ -1,0 +1,78 @@
+@use "../../styles/partials/_fonts" as *;
+@use "../../styles/partials/_mixins" as *;
+@use "../../styles/partials/_resets" as *;
+@use "../../styles/partials/_variables" as *;
+
+.videoinfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  &__divider {
+    border: none;
+    border-top: 0.0625rem solid $mercury;
+    // margin: 0.625rem 0;
+    margin: auto;
+    width: 100%;
+  }
+
+  &__divider--tablet {
+    @include tablet {
+        display: none;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0.5rem;
+
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+    }
+  }
+
+  &__container--left{
+    @include tablet {
+       display: flex;
+       justify-content: flex-start;
+       // margin-left: auto;
+    }
+}
+&__container--right{
+    @include tablet {
+        display: flex;
+        justify-content: flex-end;
+        flex: 1;
+    }
+  }
+
+  &__engagement {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0 0.5rem;
+  }
+
+  &__info {
+    @include subheader-mobile;
+    font-weight: 400;
+    color: $silver;
+    padding: 0.25rem;
+  }
+
+  &__icon {
+    padding: 0.25rem;
+  }
+
+  &__info-channel {
+    @include subheader-mobile;
+    color: $brainFlix-Black;
+  }
+}

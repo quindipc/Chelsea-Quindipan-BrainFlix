@@ -12,13 +12,10 @@ export default function Video() {
 
   return (
       <>
-        <div className="videocontent__container">
+        <div className="video__container">
         <video controls
           poster={videoData.image}
-          className="videocontent__video"><source src={videoData.video} /> </video>
-        {/* <img className="videocontent__image"
-          src={videoData.image} alt={videoData.title}/> */}
-        <h1 className="videocontent__title">{videoData.title}</h1>
+          className="video__video"><source src={videoData.video} /> </video>
         </div>
         <VideoDetails/>
       </>
