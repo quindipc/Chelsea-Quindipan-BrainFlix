@@ -1,16 +1,20 @@
+// import React, { useState, useEffect } from "react";
+// import details from "../../data/video-details.json";
 import "./Comments.scss";
-
+import CommentItem from "./CommentItem";
 
 export default function Comments() {
-    // const [videoData, setVideoData] = useState({});
-  
+    // const [detailsData, setDetailsData] = useState({});
+
     // useEffect(() => {
-    //   setVideoData(videos[0]);
+    //   setDetailsData(details[0]);
     // }, []);
-  
-    return (
-        <>
-         
-        </>
-      );
-  }
+
+  return (
+      <>
+          <section className="commentsection">
+          <CommentItem />
+          </section>
+      </>
+  );
+}
