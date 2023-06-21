@@ -1,0 +1,12 @@
+@use "../../../styles/partials/_fonts" as *;
+@use "../../../styles/partials/_mixins" as *;
+@use "../../../styles/partials/_resets" as *;
+@use "../../../styles/partials/_variables" as *;
+
+.nextvideo__section {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+    // this section will be 25% while comments will be 75% of container in tablet/desktop
+}

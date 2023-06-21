@@ -3,6 +3,7 @@ import Header from './components/header/Header';
 import Video from './components/video/Video';
 import CommentsForm from './components/comments/CommentsForm';
 import Comments from './components/comments/Comments';
+import NextVideo from './components/video/nextvideo/NextVideo';
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
       <Video />
       <CommentsForm />
       <Comments />
+      <NextVideo/>
     </>
   );
 }
