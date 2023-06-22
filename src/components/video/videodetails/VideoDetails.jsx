@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./VideoDetails.scss";
-import details from "../../data/video-details.json";
-import VideoInfo from "./VideoInfo";
+import details from "../../../data/video-details.json";
+import VideoInfo from "../videoinfo/VideoInfo";
 
 export default function VideoDetails() {
   const [detailsData, setDetailsData] = useState({});
