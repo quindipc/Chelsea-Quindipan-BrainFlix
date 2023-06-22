@@ -4,6 +4,7 @@
 @use "../../styles/partials/_variables" as *;
 
 .commentitem {
+  
   &__avatar {
     display: flex;
     border-radius: 50%;
@@ -14,5 +15,12 @@
     // margin: 1.5rem 0;
     // object-fit: cover;
     background-color: $mercury;
+  }
+
+  &__divider {
+    border: none;
+    border-top: 0.0625rem solid $mercury;
+    margin: auto;
+    width: 100%;
   }
 }

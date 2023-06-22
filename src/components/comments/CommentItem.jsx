@@ -1,40 +1,31 @@
 import React, { useState, useEffect } from "react";
-import comments from "../../data/video-details.json";
 import "./CommentItem.scss";
+import details from "../../data/video-details.json";
+import Timestamp from "../video/timestamp/Timestamp";
 
-export default function CommentItem() {
-  const [commentsData, setCommentData] = useState({});
+export default function CommentItem({ comment }) {
+  const [detailsData, setDetailsData] = useState({});
 
-  // Fix this to display the comments
   useEffect(() => {
-    setCommentData(comments[0]);
+    setDetailsData(details[0]);
   }, []);
 
   return (
-    <>
-      <ul className="commentitem__container">
-        <li className="commentitem__item">
-          <div className="commentitem__content">
-            <div className="commentitem__avater-container">
-              <div
-                className="commentitem__avatar"
-                alt="BrainFlix Avatar"
-              />
-              {/* this is not working -- need to target correct array item*/}
-              {/* <p className="commentitem__name">{commentsData.name}</p>
-              <p className="commentitem__date">{commentsData.timestamp}</p>
-              <p className="commentitem__comment">{commentsData.comment}</p> */}
-              <p className="commentitem__name">PLACEHOLDER NAME</p>
-              <p className="commentitem__date">fake date</p>
-              <p className="commentitem__comment">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Architecto id deleniti natus maxime neque dicta porro nobis
-                temporibus? Beatae, aspernatur.
-              </p>
-            </div>
+    <ul className="commentitem__container">
+      <li className="commentitem__item">
+        <div className="commentitem__content">
+        <hr class="commentitem__divider"/>
+          <div className="commentitem__container">
+            <div className="commentitem__avatar" alt="BrainFlix Avatar" />
+            <p className="commentitem__name">{comment.name}</p>
+            <Timestamp
+              className="commtitem__date"
+              timestamp={detailsData.timestamp}
+            />
+            <p className="commentitem__comment">{comment.comment}</p>
           </div>
-        </li>
-      </ul>
-    </>
+        </div>
+      </li>
+    </ul>
   );
 }
