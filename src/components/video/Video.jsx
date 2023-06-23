@@ -4,18 +4,12 @@ import "./Video.scss";
 // Components
 import VideoInfo from "./VideoInfo";
 
-export default function Video({
-  image,
-  video,
-  title,
-  description,
-  channel,
-  views,
-  timestamp,
-  likes,
-}) {
-  return (  
-    <>
+export default function Video({ selected }) {
+  const { image, video, title, description, channel, views, timestamp, likes } =
+    selected;
+
+  return (
+    <>  
       <div className="video__container">
         <video controls poster={image} className="video__video">
           <source src={video} type="video/mp4" />{" "}
@@ -23,12 +17,7 @@ export default function Video({
       </div>
       <div className="videodetails__container">
         <h1 className="videodetails__title">{title}</h1>
-        <VideoInfo
-          likes={likes}
-          views={views}
-          timestamp={timestamp}
-          channel={channel}
-        />
+        <VideoInfo activity={selected} />
         <p className="videodetails__description">{description}</p>
       </div>
     </>

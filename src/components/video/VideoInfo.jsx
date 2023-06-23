@@ -1,9 +1,14 @@
 import "./VideoInfo.scss";
+
+// Icons
 import viewsIcon from "../../assets/images/icons/views.svg";
 import likesIcon from "../../assets/images/icons/likes.svg";
+
+// Components
 import Timestamp from "./timestamp/Timestamp";
 
-export default function VideoInfo({ channel, timestamp, views, likes }) {
+export default function VideoInfo({activity}) {
+  const { channel, timestamp, views, likes } = activity;
   return (
     <>
       <hr className="videoinfo__divider videoinfo__divider--tablet" />

@@ -1,21 +1,32 @@
 import "./NextVideo.scss";
+
+// Components
 import NextVideoItem from "./NextVideoItem";
 
-export default function NextVideo({ videos, getVideoDetails, selectedVideoDetails }) {
+export default function NextVideo({
+  videos,
+  getVideoDetails,
+  selectedVideoDetails,
+}) {
+
+  
   return (
     <>
       <section className="nextvideo__section">
+        {/* Filter out the videos from the clicked one */}
         <h3 className="nextvideo__title">Next videos</h3>
-        {videos.filter(({id}) => id !== selectedVideoDetails?.id).map((video) => (
-          <NextVideoItem
-            id={video.id}
-            image={video.image}
-            title={video.title}
-            channel={video.channel}
-            video={video.video}
-            getVideoDetails={getVideoDetails}
-          />
-        ))}
+        {videos
+          .filter(({ id }) => id !== selectedVideoDetails?.id)
+          .map((video) => (
+            <NextVideoItem
+              id={video.id}
+              image={video.image}
+              title={video.title}
+              channel={video.channel}
+              video={video.video}
+              getVideoDetails={getVideoDetails}
+            />
+          ))}
       </section>
     </>
   );

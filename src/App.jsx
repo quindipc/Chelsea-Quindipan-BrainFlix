@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.scss";
+
+// Components
 import Header from "./components/header/Header";
 import Video from "./components/video/Video";
 import Comments from "./components/comments/Comments";
@@ -43,14 +45,7 @@ export default function App() {
     <>
       <Header />
       <Video
-        image={selectedVideoDetails.image}
-        video={selectedVideoDetails.video}
-        title={selectedVideoDetails.title}
-        description={selectedVideoDetails.description}
-        likes={selectedVideoDetails.likes}
-        views={selectedVideoDetails.views}
-        timestamp={selectedVideoDetails.timestamp}
-        channel={selectedVideoDetails.channel}
+        selected={selectedVideoDetails}
       />
       <Comments
         comments={selectedVideoDetails?.comments ?? []}
