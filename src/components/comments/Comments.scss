@@ -4,13 +4,18 @@
 @use "../../styles/partials/_variables" as *;
 
 
-.commentsection {
+.comments {
     display: flex;
     flex-direction: column;
+    // padding: $padding-components-mobile;
 
     @include tablet {
+        padding: $padding-components-desktop;
 
-        // this will take 75% of container once tablet media breakpoint hits and comments will be on the right 
-        // flex: 75%;
+        // TODO: flex: 2 ?? needs to take 75% 
+    }
+
+    &__container {
+        // padding: 0 1rem;
     }
 }

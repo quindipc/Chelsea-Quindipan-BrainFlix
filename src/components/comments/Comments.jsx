@@ -18,22 +18,20 @@ export default function Comments({ comments, setSelectedVideoDetails  }) {
     e.preventDefault();
     if (input === "" || input?.trim()?.length === 0) return;
 
-    // TODO: Handle other comment properties
-    // TODO: Generare a uuid for new comment
     setSelectedVideoDetails((previousState) => ({
       ...previousState,
       comments: [...previousState.comments, { comment: input, id: uuidv4() }]
     }));
 
-    // Clear input state after appending comment
+    // Clears input state after appending comment
     setInput("");
   };
 
   return (
     <>
       <CommentsForm totalComments={comments?.length} input={input} handleInputChange={handleInputChange} handleNewComment={handleNewComment} />
-      <section className="commentsection">
-        <ul className="commentitem__container">
+      <section className="comments">
+        <ul className="comments__container">
           {comments?.length > 0 && comments?.map((comment) => {
             return <CommentItem key={comment.id} comment={comment} />
           })}
