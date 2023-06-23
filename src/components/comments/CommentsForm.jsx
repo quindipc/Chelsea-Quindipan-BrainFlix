@@ -22,13 +22,11 @@ export default function CommentsForm({totalComments, input, handleInputChange, h
             className="commentform__textarea"
             name="comment"
             id="comment"
-            cols="10"
-            rows="3"
             placeholder="Add a new comment"
             value={input}
             onChange={handleInputChange}
           ></textarea>
-          <button className="commentform__button" type="submit" value="button">
+          <button className="commentform__comment" type="submit" value="button">
             Comment
           </button>
         </div>

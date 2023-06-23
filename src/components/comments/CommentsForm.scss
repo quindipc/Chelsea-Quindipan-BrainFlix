@@ -7,11 +7,11 @@
   display: flex;
   justify-content: center;
   position: relative;
-  padding: 1rem;
+  padding: $padding-components-mobile;
   flex-direction: column;
-
+  
   @include tablet {
-    padding: 2.25rem;
+    padding: $padding-components-desktop;
     max-width: 768px;
     justify-content: center;
     margin: auto;
@@ -22,7 +22,14 @@
     padding-top: 1rem;
     min-height: $form-height-mobile;
     min-width: $form-width;
+    padding: $form-padding-mobile;
     width: 100%;
+
+    @include tablet {
+      min-height: $form-height-desktop;
+      min-width: $form-width;
+      padding: $form-padding-desktop;
+    }
   }
 
   &__title {
@@ -76,18 +83,14 @@
     font-family: inherit;
     border-radius: 0.25rem;
     border: 1px solid $mercury;
-    background-color: $white;
-    max-height: $form-height-mobile;
-    min-width: $form-width;
-    width: 100%;
-    padding: $form-padding-mobile;
+    background-color: $alabaster;
+    height: 85px;
 
-    // @include tablet {
-    //   height: $form-height-desktop;
-    // }
+    @include tablet {
+    }
   }
 
-  &__button {
+  &__comment {
     height: $button-height;
     padding: $button-padding;
     border-radius: $button-radius;
@@ -97,6 +100,14 @@
     color: $white;
     width: 100%;
     margin-top: 1rem;
+    background-image: url("../../assets/images/icons/upload.svg");
+    background-repeat: no-repeat;
+    background-position: left center;
+    border: 1px solid $mercury;
+    border-radius: $button-radius;
+    box-shadow: none;
+    height: $button-height;
+    @include labels-buttons-mobile;
 
     @include tablet {
       @include labels-buttons-desktop;
@@ -105,7 +116,8 @@
     }
   }
 
-  &__button:hover {
+  // TODO: add hover to header upload button
+  &__comment:hover {
     background-color: $brainFlix-DarkBlue;
     cursor: pointer;
   }
