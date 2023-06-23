@@ -5,12 +5,12 @@ import Video from "./components/video/Video";
 import Comments from "./components/comments/Comments";
 import NextVideo from "./components/video/NextVideo";
 
-// Data (JSON)
-import data from "./data/video-details.json";
+import data from "./data/video-details.json"; // Video details (JSON)
+import videos from "./data/videos.json" // Videos (JSON)
 
-// TODO: Add click handler to change videos
 
 export default function App() {
+  const [nextVideos, setNextVideos] = useState([]);
   const [selectedVideoDetails, setSelectedVideoDetails] = useState({});
 
   // Finds and stores the selected videos details
@@ -25,13 +25,18 @@ export default function App() {
 
   /**
    * Empty dependencies as we only want this to run on the initial load
-   * to populate our initial video
+   * to populate our initial video details and grab our upcomming videos
    */
   useEffect(() => {
-    if (data == null) return;
-
-    setSelectedVideoDetails(data[0]);
+    if (data != null) {
+      setSelectedVideoDetails(data[0]);
+    }
+    if (videos != null) {
+      setNextVideos(videos);
+    }
   }, []);
+
+  console.log(videos)
 
 
   return (
@@ -51,7 +56,7 @@ export default function App() {
         comments={selectedVideoDetails?.comments ?? []}
         setSelectedVideoDetails={setSelectedVideoDetails}
       />
-      <NextVideo />
+      <NextVideo videos={nextVideos} selectedVideoDetails={selectedVideoDetails} getVideoDetails={getVideoDetails} />
     </>
   );
 }

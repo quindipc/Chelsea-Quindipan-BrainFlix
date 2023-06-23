@@ -14,7 +14,7 @@ export default function Video({
   timestamp,
   likes,
 }) {
-  return (
+  return (  
     <>
       <div className="video__container">
         <video controls poster={image} className="video__video">
