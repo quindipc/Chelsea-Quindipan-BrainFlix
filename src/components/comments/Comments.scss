@@ -7,7 +7,7 @@
 .comments {
     display: flex;
     flex-direction: column;
-    // padding: $padding-components-mobile;
+    padding: $padding-components-mobile;
 
     @include tablet {
         padding: $padding-components-desktop;

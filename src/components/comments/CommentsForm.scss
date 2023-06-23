@@ -7,9 +7,9 @@
   display: flex;
   justify-content: center;
   position: relative;
-  padding: 0 1rem 1rem;
+  padding: 0 1rem;
   flex-direction: column;
-  
+
   @include tablet {
     padding: $padding-components-desktop;
     max-width: 768px;
@@ -19,6 +19,7 @@
 
   &__form {
     display: flex;
+    align-items: center;
     padding-top: 1rem;
     min-height: $form-height-mobile;
     min-width: $form-width;
@@ -84,9 +85,11 @@
     border-radius: 0.25rem;
     border: 1px solid $mercury;
     background-color: $alabaster;
-    height: 85px;
+    height: 85px; //is this correct? 
 
+    // TODO: width of input container
     @include tablet {
+      height: $button-height;//is this correct? 
     }
   }
 
@@ -110,9 +113,7 @@
     @include labels-buttons-mobile;
 
     @include tablet {
-      @include labels-buttons-desktop;
-      width: $button-width-desktop;
-    //   margin-left: auto;
+      display: none;
     }
   }
 
@@ -122,4 +123,42 @@
     cursor: pointer;
   }
 
+  &__container-tablet {
+    @include tablet {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      margin-top: 2.5rem;
+    }
+  }
+
+  // TODO: Change comment button into a mixin - reusable
+  &__comment-tablet {
+    display: none;
+
+    @include tablet {
+      height: $button-height;
+      padding: $button-padding;
+      border-radius: $button-radius;
+      text-transform: uppercase;
+      @include labels-buttons-mobile;
+      background-color: $brainFlix-Blue;
+      color: $white;
+      width: 100%;
+      background-image: url("../../assets/images/icons/upload.svg");
+      background-repeat: no-repeat;
+      background-position: left center;
+      border: 1px solid $mercury;
+      border-radius: $button-radius;
+      box-shadow: none;
+      height: $button-height;
+      @include labels-buttons-mobile;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      @include labels-buttons-desktop;
+      width: $button-width-desktop;
+    }
+  }
 }

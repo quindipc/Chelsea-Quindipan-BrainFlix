@@ -30,6 +30,11 @@ export default function CommentsForm({totalComments, input, handleInputChange, h
             Comment
           </button>
         </div>
+        <div className="commentform__container-tablet">
+        <button className="commentform__comment-tablet" type="submit" value="button">
+            Comment
+          </button>
+        </div>
       </form>
     </section>
   );
