@@ -3,11 +3,10 @@ import "./App.scss";
 import Header from "./components/header/Header";
 import Video from "./components/video/Video";
 import Comments from "./components/comments/Comments";
-import NextVideo from "./components/video/nextvideo/NextVideo";
+import NextVideo from "./components/video/NextVideo";
 
 // Data (JSON)
 import data from "./data/video-details.json";
-
 
 // TODO: Add click handler to change videos
 
@@ -17,7 +16,7 @@ export default function App() {
   // Finds and stores the selected videos details
   const getVideoDetails = (videoId) => {
     // Get the selected video details
-    const details = data?.find(({ id }) => videoId);
+    const details = data?.find(({ id }) => id === videoId);
 
     if (details != null) {
       setSelectedVideoDetails(details);
@@ -25,20 +24,33 @@ export default function App() {
   };
 
   /**
-    * Empty dependencies as we only want this to run on the initial load 
-    * to populate our initial video
-  */
+   * Empty dependencies as we only want this to run on the initial load
+   * to populate our initial video
+   */
   useEffect(() => {
     if (data == null) return;
 
     setSelectedVideoDetails(data[0]);
   }, []);
 
+
   return (
     <>
       <Header />
-      <Video />
-      <Comments comments={selectedVideoDetails?.comments ?? []} setSelectedVideoDetails={setSelectedVideoDetails} />
+      <Video
+        image={selectedVideoDetails.image}
+        video={selectedVideoDetails.video}
+        title={selectedVideoDetails.title}
+        description={selectedVideoDetails.description}
+        likes={selectedVideoDetails.likes}
+        views={selectedVideoDetails.views}
+        timestamp={selectedVideoDetails.timestamp}
+        channel={selectedVideoDetails.channel}
+      />
+      <Comments
+        comments={selectedVideoDetails?.comments ?? []}
+        setSelectedVideoDetails={setSelectedVideoDetails}
+      />
       <NextVideo />
     </>
   );

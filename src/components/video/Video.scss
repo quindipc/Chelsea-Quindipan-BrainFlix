@@ -22,3 +22,17 @@
     width: 100%;
   }
 }
+
+
+.videodetails__container {
+
+  &__title {
+      padding: $padding-headlines-mobile;
+  }
+
+  &__description {
+      @include body-copy-mobile;
+      padding: $padding-components-mobile;
+  }
+
+}

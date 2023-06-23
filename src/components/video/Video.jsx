@@ -1,23 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React from "react";
 import "./Video.scss";
-import videos from "../../data/videos.json";
-import VideoDetails from "./videodetails/VideoDetails";
 
-export default function Video() {
-  const [videoData, setVideoData] = useState({});
+// Components
+import VideoInfo from "./VideoInfo";
 
-  useEffect(() => {
-    setVideoData(videos[0]);
-  }, []);
-
+export default function Video({
+  image,
+  video,
+  title,
+  description,
+  channel,
+  views,
+  timestamp,
+  likes,
+}) {
   return (
-      <>
-        <div className="video__container">
-        <video controls
-          poster={videoData.image}
-          className="video__video"><source src={videoData.video} /> </video>
-        </div>
-        <VideoDetails/>
-      </>
-    );
+    <>
+      <div className="video__container">
+        <video controls poster={image} className="video__video">
+          <source src={video} type="video/mp4" />{" "}
+        </video>
+      </div>
+      <div className="videodetails__container">
+        <h1 className="videodetails__title">{title}</h1>
+        <VideoInfo
+          likes={likes}
+          views={views}
+          timestamp={timestamp}
+          channel={channel}
+        />
+        <p className="videodetails__description">{description}</p>
+      </div>
+    </>
+  );
 }
