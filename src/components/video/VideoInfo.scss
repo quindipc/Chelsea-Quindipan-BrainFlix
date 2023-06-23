@@ -8,25 +8,25 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 0 1rem .5rem;
+  padding: 0 1rem 0.5rem;
 
   &__divider {
     border: none;
     border-top: 0.0625rem solid $mercury;
     margin: auto;
     width: 100%;
+    padding-bottom: 0.5rem;
   }
 
   &__divider--tablet {
     @include tablet {
-        display: none;
+      display: none;
     }
   }
 
   &__container {
     display: flex;
     flex-direction: column;
-    // align-items: flex-start;
     justify-content: center;
     flex: 50%;
 
@@ -38,25 +38,25 @@
     }
   }
 
-  &__container--left{ 
+  &__container--left {
     @include tablet {
-       display: flex;
-       justify-content: flex-start;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
     }
-}
-&__container--right{
-  // check to see if this is this correct? 
-  // align-items: flex-end;
+  }
+  &__container--right {
+    // check to see if this is this correct?
+    // align-items: flex-end;
     @include tablet {
-        display: flex;
-        justify-content: flex-end;
+      display: flex;
+      justify-content: flex-end;
     }
   }
 
   &__engagement {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
     padding: 0 0.5rem;
   }
 
@@ -65,6 +65,10 @@
     font-weight: 400;
     color: $silver;
     padding: 0.25rem;
+
+    @include tablet {
+      @include subheader-desktop;
+    }
   }
 
   &__icon {

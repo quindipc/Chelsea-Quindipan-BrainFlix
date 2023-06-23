@@ -10,15 +10,16 @@ export default function Video({ selected }) {
 
   return (
     <>  
-      <div className="video__container">
-        <video controls poster={image} className="video__video">
-          <source src={video} type="video/mp4" />{" "}
+      <div className="video">
+        <video controls poster={image} className="video__mp4">
+          <source src={video} type="video/mp4" />
         </video>
       </div>
-      <div className="videodetails__container">
-        <h1 className="videodetails__title">{title}</h1>
+
+      <div className="video__details">
+        <h1 className="video__details-title">{title}</h1>
         <VideoInfo activity={selected} />
-        <p className="videodetails__description">{description}</p>
+        <p className="video__details-description">{description}</p>
       </div>
     </>
   );
