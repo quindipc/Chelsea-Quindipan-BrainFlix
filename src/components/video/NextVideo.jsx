@@ -12,12 +12,17 @@ export default function NextVideo({
   
   return (
     <>
-      <section className="nextvideo__section">
-        {/* Filter out the videos from the clicked one */}
+      <section className="nextvideo">
+        <hr className="nextvideo__divider" />
+        
+        
+       {/* Filter out the videos from the clicked one */}
         <h3 className="nextvideo__title">Next videos</h3>
         {videos
           .filter(({ id }) => id !== selectedVideoDetails?.id)
           .map((video) => (
+
+            // TODO: Deconstruct this 
             <NextVideoItem
               id={video.id}
               image={video.image}

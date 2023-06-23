@@ -3,10 +3,23 @@
 @use "../../styles/partials/_resets" as *;
 @use "../../styles/partials/_variables" as *;
 
-.nextvideo__section {
+.nextvideo {
+    // TODO: flex: 1 of desktop mode
     display: flex;
-    // justify-content: flex-end;
-    // align-items: flex-end;
     flex-direction: column;
-    // this section will be 25% while comments will be 75% of container in tablet/desktop
+    padding: $padding-components-mobile;
+
+    &__title {
+        padding: 1rem 0;
+        color: $silver;
+        text-transform: uppercase;
+        @include subheader-mobile;
+    }
+  
+    &__divider {
+        border: none;
+        border-top: 0.0625rem solid $mercury;
+        margin: auto;
+        width: 100%;
+      }
 }

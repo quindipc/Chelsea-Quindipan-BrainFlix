@@ -3,15 +3,33 @@
 @use "../../styles/partials/_resets" as *;
 @use "../../styles/partials/_variables" as *;
 
-.nextvideoitem{
+.nextvideoitem {
   display: flex;
-  // justify-content: flex-end;
-  // align-items: flex-end;
-  flex-direction: column;
-      // this section will be 25% while comments will be 75% of container in tablet/desktop
+  flex-direction: row;
+  color: $brainFlix-Black;
 
+  &__container {
+    padding-bottom: 1rem;
+  }
+
+  
   &__video {
     position: relative;
-    width: 25%;
+    object-fit: cover;
+    // TODO: figure out size of video thumbnail
+    width: 150px;
+    height: 90px;
+    border-radius: 0.45rem;
+    background-color: $mercury;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  &__title {
+padding-bottom: 0.25rem;
   }
 }

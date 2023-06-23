@@ -47,6 +47,7 @@ export default function App() {
       <Video
         selected={selectedVideoDetails}
       />
+      {/* TODO: need to figure out container for this  */}
       <Comments
         comments={selectedVideoDetails?.comments ?? []}
         setSelectedVideoDetails={setSelectedVideoDetails}

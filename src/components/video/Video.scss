@@ -8,6 +8,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: $brainFlix-DarkBlack;
   
   &__container {
     padding: $padding-headlines-mobile;
@@ -20,7 +21,6 @@
   
   &__details {
     color: $brainFlix-Black;
-    padding: $padding-headlines-mobile;
     
     
     &-title {
