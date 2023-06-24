@@ -7,29 +7,40 @@
   display: flex;
   flex-direction: row;
   color: $brainFlix-Black;
-
+  
   &__container {
     padding-bottom: 1rem;
+    
+    @include tablet {
+      padding-bottom: 1.5rem;
+    }
   }
-
   
   &__video {
-    position: relative;
     object-fit: cover;
-    // TODO: figure out size of video thumbnail
-    width: 150px;
-    height: 90px;
-    border-radius: 0.45rem;
+    width: 9rem;
+    height: 5.7rem;
+    border-radius:4px;
     background-color: $mercury;
   }
 
   &__info {
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    padding: 1rem 1rem;
+    @include body-copy-mobile;
+
+    @include tablet {
+      padding: 0 1.5rem;
+      @include body-copy-desktop;
+    }
   }
 
   &__title {
-padding-bottom: 0.25rem;
+    @include subheader-mobile;
+    padding-bottom: 0.25rem;
+    @include tablet {
+      @include subheader-desktop;
+    }
   }
 }
