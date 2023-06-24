@@ -25,6 +25,7 @@ export default function CommentsForm({totalComments, input, handleInputChange, h
             placeholder="Add a new comment"
             value={input}
             onChange={handleInputChange}
+            autoFocus
           ></input>
           <button className="commentform__comment" type="submit" value="button">
             Comment

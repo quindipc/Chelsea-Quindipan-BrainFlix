@@ -11,12 +11,9 @@
 
   @include tablet {
     padding: $padding-components-desktop;
+    padding-bottom: 0;
     max-width: $desktop;
     justify-content: center;
-  }
-
-  @include desktop {
-    padding: 0 1rem 0 1rem;
   }
 
   &__number {
@@ -29,16 +26,12 @@
   &__form {
     display: flex;
     align-items: center;
-    padding-top: 1rem;
     min-height: $form-height-mobile;
     min-width: $form-width;
-    padding: $form-padding-mobile;
     width: 100%;
 
     @include tablet {
       min-height: $form-height-desktop;
-      min-width: $form-width;
-      padding: $form-padding-desktop;
     }
   }
 
@@ -61,7 +54,6 @@
     max-height: 2.25rem;
     width: 2.25rem;
     height: 2.25rem;
-    margin: 1.5rem 0;
     object-fit: cover;
     background-color: $mercury;
 
@@ -71,8 +63,6 @@
       width: 3rem;
       height: 3rem;
       display: flex;
-      // padding: 0;
-      // margin: 0;
     }
   }
 
@@ -85,11 +75,11 @@
   &__label {
     color: $silver;
     text-transform: uppercase;
-    @include body-copy-mobile;
+    @include labels-buttons-mobile;
     padding: 1rem 0 0.25rem;
 
     @include tablet {
-      @include body-copy-desktop;
+      @include labels-buttons-desktop;
     }
   }
 
@@ -98,11 +88,17 @@
     border-radius: 0.25rem;
     border: 1px solid $mercury;
     background-color: $alabaster;
-    height: 85px; //is this correct?
+    min-height: 2.25rem;
+    height: 5rem;
+    @include body-copy-mobile;
 
-    // TODO: width of input container
     @include tablet {
-      height: $button-height; //is this correct?
+      @include body-copy-desktop;
+      height: $button-height;
+    }
+    &:focus {
+      outline: none;
+      border: 2px solid $brainFlix-Blue;
     }
   }
 
@@ -117,11 +113,11 @@
     @include tablet {
       display: none;
     }
-  }
 
-  &__comment:hover {
-    background-color: $brainFlix-DarkBlue;
-    cursor: pointer;
+    &:hover {
+      background-color: $brainFlix-DarkBlue;
+      cursor: pointer;
+    }
   }
 
   &__container-tablet {
@@ -148,5 +144,15 @@
       @include labels-buttons-desktop;
       background-image: url("../../assets/images/icons/upload.svg");
     }
+    &:hover {
+      background-color: $brainFlix-DarkBlue;
+      cursor: pointer;
+    }
   }
 }
+
+// input:focus {
+//   outline: none !important;
+//   border: 1px solid red;
+//   // box-shadow: 0 0 10px #719ece;
+// }

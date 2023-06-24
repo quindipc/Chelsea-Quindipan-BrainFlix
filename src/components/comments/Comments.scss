@@ -11,11 +11,9 @@
 
     @include tablet {
         padding: $padding-components-desktop;
-        padding-right: 0;
-        // maybe change?
     }
-
+    
     @include desktop {
-        padding-top: 0;
+        padding-right: 0;
     }
 }

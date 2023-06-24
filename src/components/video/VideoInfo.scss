@@ -68,13 +68,13 @@
   }
 
   &__info {
-    @include subheader-mobile;
+    @include body-copy-mobile;
     font-weight: 400;
     color: $silver;
     padding: 0.25rem;
 
     @include tablet {
-      @include subheader-desktop;
+      @include body-copy-desktop;
     }
   }
 

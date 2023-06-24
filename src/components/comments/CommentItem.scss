@@ -12,6 +12,10 @@
     display: flex;
     flex-direction: row;
     padding: 1rem 0;
+
+    @include tablet {
+      padding: 1.5rem 0;
+    }
   }
 
   &__content {
@@ -71,10 +75,19 @@
   }
 
   &__date {
+    @include body-copy-mobile;
     color: $silver;
+    @include tablet {
+      @include body-copy-desktop;
+    }
   }
 
   &__comment {
+    @include body-copy-mobile;
+
+    @include tablet {
+      @include body-copy-desktop;
+    }
     @include desktop {
       padding-right: 1rem;
     }
