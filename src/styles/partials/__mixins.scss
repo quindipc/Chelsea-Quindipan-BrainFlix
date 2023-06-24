@@ -1,3 +1,5 @@
+@use "../../styles/partials/_fonts" as *;
+@use "../../styles/partials/_resets" as *;
 @use "../../styles/partials/_variables" as *;
 
 // Media Query
@@ -77,3 +79,18 @@
     font-style: bold;
     font-weight: 700;
 }
+
+// Button Styles 
+@mixin buttonStyles {
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding: 0.75rem;
+    border: 1px solid $mercury;
+    color: $white;
+    border-radius: $button-radius;
+    background-color: $brainFlix-Blue;
+    box-shadow: none;
+    height: $button-height;
+    text-transform: uppercase;
+    @include labels-buttons-mobile;
+  }

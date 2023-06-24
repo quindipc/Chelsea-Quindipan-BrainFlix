@@ -76,25 +76,16 @@
         display: flex;
         border-radius: 50%;
         object-fit: cover;
-        width: 2.25rem;
-        height: 2.25rem;
+        width: 2.5rem;
+        height: 2.5rem;
         margin: 1rem;
       }
     }
 
     &--upload {
       background-image: url("../../assets/images/icons/upload.svg");
-      background-repeat: no-repeat;
       background-position: left center;
-      padding: 0.75rem;
-      background-color: $brainFlix-Blue;
-      border: 1px solid $mercury;
-      color: $white;
-      border-radius: $button-radius;
-      box-shadow: none;
-      height: $button-height;
-      text-transform: uppercase;
-      @include labels-buttons-mobile;
+      @include buttonStyles;
 
       @include tablet {
         justify-content: center;
@@ -102,6 +93,11 @@
         width: $button-width-desktop;
         @include labels-buttons-desktop;
       }
+    }
+
+    &--upload:hover {
+      background-color: $brainFlix-DarkBlue;
+      cursor: pointer;
     }
   }
 

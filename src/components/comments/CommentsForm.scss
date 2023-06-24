@@ -107,23 +107,12 @@
   }
 
   &__comment {
+    @include buttonStyles;
     height: $button-height;
     padding: $button-padding;
-    border-radius: $button-radius;
-    text-transform: uppercase;
-    @include labels-buttons-mobile;
-    background-color: $brainFlix-Blue;
-    color: $white;
     width: 100%;
     margin-top: 1rem;
     background-image: url("../../assets/images/icons/upload.svg");
-    background-repeat: no-repeat;
-    background-position: left center;
-    border: 1px solid $mercury;
-    border-radius: $button-radius;
-    box-shadow: none;
-    height: $button-height;
-    @include labels-buttons-mobile;
 
     @include tablet {
       display: none;
@@ -144,29 +133,20 @@
     }
   }
 
-  // TODO: Change comment button into a mixin - reusable
   &__comment-tablet {
     display: none;
 
     @include tablet {
+      @include buttonStyles;
       height: $button-height;
       padding: $button-padding;
-      text-transform: uppercase;
-      background-color: $brainFlix-Blue;
-      color: $white;
-      width: 100%;
-      background-image: url("../../assets/images/icons/upload.svg");
-      background-repeat: no-repeat;
-      background-position: left center;
-      border: 1px solid $mercury;
-      border-radius: $button-radius;
-      box-shadow: none;
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      @include labels-buttons-desktop;
       width: $button-width-desktop;
+      @include labels-buttons-desktop;
+      background-image: url("../../assets/images/icons/upload.svg");
     }
   }
 }
