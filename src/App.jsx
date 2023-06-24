@@ -3,9 +3,10 @@ import "./App.scss";
 
 // Components
 import Header from "./components/header/Header";
-import Video from "./components/video/Video";
+import VideoDetails from "./components/video/VideoDetails";
 import Comments from "./components/comments/Comments";
 import NextVideo from "./components/video/NextVideo";
+import Video from "./components/Video";
 
 import data from "./data/video-details.json"; // Video details (JSON)
 import videos from "./data/videos.json" // Videos (JSON)
@@ -44,14 +45,20 @@ export default function App() {
   return (
     <>
       <Header />
-      <Video
+      <Video selected={selectedVideoDetails}/>
+
+      <div className="main__container">
+      <VideoDetails
         selected={selectedVideoDetails}
       />
       {/* TODO: need to figure out container for this  */}
+
       <Comments
         comments={selectedVideoDetails?.comments ?? []}
         setSelectedVideoDetails={setSelectedVideoDetails}
       />
+      </div>
+      
       <NextVideo videos={nextVideos} selectedVideoDetails={selectedVideoDetails} getVideoDetails={getVideoDetails} />
     </>
   );

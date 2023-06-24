@@ -1,0 +1,29 @@
+@use "../../styles/partials/_fonts" as *;
+@use "../../styles/partials/_mixins" as *;
+@use "../../styles/partials/_resets" as *;
+@use "../../styles/partials/_variables" as *;
+  
+ .video {
+   &__details {
+      color: $brainFlix-Black;
+      
+      
+      &-title {
+        @include page-header-mobile;
+        padding-bottom: 1rem;
+   
+        @include tablet {
+          @include page-header-desktop;
+        }
+      }
+    
+      &-description {
+          @include body-copy-mobile;
+   
+          @include tablet {
+            @include body-copy-desktop;
+            padding-top: .5rem;
+          }
+      }
+    }
+} 

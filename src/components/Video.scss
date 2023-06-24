@@ -1,0 +1,31 @@
+@use "../styles/partials/_fonts" as *;
+@use "../styles/partials/_mixins" as *;
+@use "../styles/partials/_resets" as *;
+@use "../styles/partials/_variables" as *;
+
+.video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: $brainFlix-DarkBlack;
+    
+    &__container {
+      padding: $padding-headlines-mobile;
+      @include desktop {
+        margin: auto; //fix this 
+      }
+    }
+  
+    &__mp4 {
+      position: relative;
+      width: 100%;
+      height: auto;
+    }
+  
+    &__mp4[poster] {
+      @include desktop {
+        width: 1280px;
+    }
+  }
+}
