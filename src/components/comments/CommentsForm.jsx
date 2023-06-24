@@ -5,7 +5,7 @@ export default function CommentsForm({totalComments, input, handleInputChange, h
 
   return (
     <section className="commentform">
-      <h2 className="commentform__number">{totalComments} comments</h2>
+      <h2 className="commentform__number">{totalComments} Comments</h2>
       <form className="commentform__form"  onSubmit={handleNewComment}>
         <div className="commentform__avatar-container">
           <img
@@ -18,14 +18,14 @@ export default function CommentsForm({totalComments, input, handleInputChange, h
           <label className="commentform__label" htmlFor="comment">
             Join the conversation
           </label>
-          <textarea
+          <input
             className="commentform__textarea"
             name="comment"
             id="comment"
             placeholder="Add a new comment"
             value={input}
             onChange={handleInputChange}
-          ></textarea>
+          ></input>
           <button className="commentform__comment" type="submit" value="button">
             Comment
           </button>
