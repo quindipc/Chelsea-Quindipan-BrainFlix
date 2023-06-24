@@ -2,17 +2,17 @@ import React from "react";
 import "./Video.scss";
 
 export default function Video({ selected }) {
-  const { image } = selected;
+  const { image, video } = selected;
 
   return (
     <>
       <div className="video">
         <video
           controls
-          poster={selected.image}
+          poster={image}
           className="video__mp4"
         >
-          <source src={selected.video} type="video/mp4" />
+          <source src={video} type="video/mp4" />
         </video>
       </div>
     </>

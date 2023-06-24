@@ -1,12 +1,13 @@
 import "./CommentsForm.scss";
+
+// Assets
 import brainflixAvatar from "../../assets/images/avatar/Mohan-muruge.jpg";
 
 export default function CommentsForm({totalComments, input, handleInputChange, handleNewComment}) {
-
   return (
     <section className="commentform">
       <h2 className="commentform__number">{totalComments} Comments</h2>
-      <form className="commentform__form"  onSubmit={handleNewComment}>
+      <form className="commentform__form" onSubmit={handleNewComment}>
         <div className="commentform__avatar-container">
           <img
             className="commentform__avatar"

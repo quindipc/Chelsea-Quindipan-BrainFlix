@@ -1,6 +1,5 @@
 import "./NextVideoItem.scss";
 
-// TODO: Deconstruct this
 export default function NextVideoItem({
   id,
   image,

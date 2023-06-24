@@ -1,13 +1,18 @@
 import "./Header.scss";
+
+// Assets
 import brainflixLogo from "../../assets/images/logo/BrainFlix-logo.svg";
 import brainflixAvatar from "../../assets/images/avatar/Mohan-muruge.jpg";
 
 export default function Header() {
+
+  // Event handler for upload button
   const uploadHandler = (event) => {
     console.log(event);
     event.preventDefault();
   };
 
+  // Event handler for search input
   const searchHandler = (event) => {
     const searchTerm = event.target.value;
     console.log("Search term:", searchTerm);

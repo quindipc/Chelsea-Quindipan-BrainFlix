@@ -8,27 +8,23 @@ export default function NextVideo({
   getVideoDetails,
   selectedVideoDetails,
 }) {
-
-  
   return (
     <>
       <section className="nextvideo">
         <hr className="nextvideo__divider" />
-        
-        
-       {/* Filter out the videos from the clicked one */}
+
+        {/* Filter out the videos from the clicked one */}
         <h3 className="nextvideo__title">Next videos</h3>
         {videos
           .filter(({ id }) => id !== selectedVideoDetails?.id)
-          .map((video) => (
-
-            // TODO: Deconstruct this 
+          .map(({ id, image, title, channel, video }) => (
             <NextVideoItem
-              id={video.id}
-              image={video.image}
-              title={video.title}
-              channel={video.channel}
-              video={video.video}
+              key={id}
+              id={id}
+              image={image}
+              title={title}
+              channel={channel}
+              video={video}
               getVideoDetails={getVideoDetails}
             />
           ))}

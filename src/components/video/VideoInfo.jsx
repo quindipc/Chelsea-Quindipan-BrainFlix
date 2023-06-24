@@ -1,6 +1,6 @@
 import "./VideoInfo.scss";
 
-// Icons
+// Assests
 import viewsIcon from "../../assets/images/icons/views.svg";
 import likesIcon from "../../assets/images/icons/likes.svg";
 
