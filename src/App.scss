@@ -6,6 +6,8 @@
 .container {
     @include desktop {
         display: flex;
+        max-width: 80rem;
+        margin: auto;
     }
 }
 

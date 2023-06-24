@@ -6,15 +6,17 @@
 .commentform {
   display: flex;
   justify-content: center;
-  position: relative;
   padding: 0 1rem;
   flex-direction: column;
 
   @include tablet {
     padding: $padding-components-desktop;
-    max-width: 768px;
+    max-width: $desktop;
     justify-content: center;
-    margin: auto;
+  }
+
+  @include desktop {
+    // margin-right: 2rem;
   }
 
   &__form {
@@ -139,9 +141,7 @@
     @include tablet {
       height: $button-height;
       padding: $button-padding;
-      border-radius: $button-radius;
       text-transform: uppercase;
-      @include labels-buttons-mobile;
       background-color: $brainFlix-Blue;
       color: $white;
       width: 100%;
@@ -151,8 +151,6 @@
       border: 1px solid $mercury;
       border-radius: $button-radius;
       box-shadow: none;
-      height: $button-height;
-      @include labels-buttons-mobile;
       display: flex;
       flex-direction: row;
       justify-content: center;

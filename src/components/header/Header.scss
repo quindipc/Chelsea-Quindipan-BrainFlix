@@ -37,6 +37,7 @@
 
     @include desktop {
       margin-left: 40rem;
+      max-width: 80rem;
     }
 
     &--search {
