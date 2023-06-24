@@ -7,8 +7,10 @@ import likesIcon from "../../assets/images/icons/likes.svg";
 // Components
 import Timestamp from "./timestamp/Timestamp";
 
-export default function VideoInfo({activity}) {
+export default function VideoInfo({ activity }) {
+  
   const { channel, timestamp, views, likes } = activity;
+
   return (
     <>
       <hr className="videoinfo__divider videoinfo__divider--tablet" />
@@ -17,7 +19,9 @@ export default function VideoInfo({activity}) {
           <h2 className="videoinfo__info videoinfo__info-channel">
             By {channel}
           </h2>
-          <Timestamp timestamp={timestamp} />
+          <p className="videoinfo__date">
+            <Timestamp timestamp={timestamp} />
+          </p>
         </div>
         <div className="videoinfo__container videoinfo__container--right">
           <div className="videoinfo__engagement">

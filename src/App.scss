@@ -1,0 +1,25 @@
+@use "./styles/partials/_fonts" as *;
+@use "./styles/partials/_mixins" as *;
+@use "./styles/partials/_resets" as *;
+@use "./styles/partials/_variables" as *;
+
+.container {
+    @include desktop {
+        display: flex;
+    }
+}
+
+.main {
+  @include desktop {
+    display: flex;
+    flex-direction: column;
+    max-width: 66.67%;
+    border-right: 1px solid #ccc; //change this
+  }
+}
+
+.playlist {
+    @include desktop {
+        max-width: 33.33%;
+    }
+}
