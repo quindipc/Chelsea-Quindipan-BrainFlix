@@ -7,13 +7,13 @@
    &__details {
       color: $brainFlix-Black;
       
-      
       &-title {
         @include page-header-mobile;
         padding-bottom: 1rem;
    
         @include tablet {
           @include page-header-desktop;
+          padding-bottom: 1.5rem;
         }
       }
     

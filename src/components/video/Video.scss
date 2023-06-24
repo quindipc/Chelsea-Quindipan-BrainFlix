@@ -13,10 +13,13 @@
   &__container {
     padding: $padding-headlines-mobile;
 
-    @include desktop {
+    @include tablet {
       padding: $padding-headlines-desktop;
+      padding-bottom: 0;
+    }
+
+    @include desktop {
       padding-right: 0;
-      // maybe change? 
     }
   }
 
