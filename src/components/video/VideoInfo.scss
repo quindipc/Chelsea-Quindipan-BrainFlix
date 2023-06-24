@@ -10,6 +10,10 @@
   justify-content: center;
   padding: 0 1rem 0.5rem;
 
+  @include desktop {
+    padding-left: 0;
+  }
+
   &__divider {
     border: none;
     border-top: 0.0625rem solid $mercury;
@@ -68,6 +72,14 @@
 
     @include tablet {
       @include subheader-desktop;
+    }
+  }
+
+  &__date {
+    color: $silver;
+
+    @include tablet {
+      padding-left: 1rem;
     }
   }
 

@@ -24,6 +24,10 @@
             @include body-copy-desktop;
             padding-top: .5rem;
           }
+
+          @include desktop {
+            padding-right: 1.5rem;
+          }
       }
     }
 } 
