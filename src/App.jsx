@@ -38,8 +38,6 @@ export default function App() {
     }
   }, []);
 
-  console.log(videos);
-
   return (
     <>
       <Header />

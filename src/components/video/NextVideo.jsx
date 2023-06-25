@@ -9,7 +9,6 @@ export default function NextVideo({
   selectedVideoDetails,
 }) {
   return (
-    <>
       <section className="nextvideo">
         <hr className="nextvideo__divider" />
 
@@ -29,6 +28,5 @@ export default function NextVideo({
             />
           ))}
       </section>
-    </>
   );
 }

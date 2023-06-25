@@ -5,7 +5,6 @@ export default function Video({ selected }) {
   const { image, video } = selected;
 
   return (
-    <>
       <div className="video">
         <video
           controls
@@ -15,6 +14,5 @@ export default function Video({ selected }) {
           <source src={video} type="video/mp4" />
         </video>
       </div>
-    </>
   );
 }

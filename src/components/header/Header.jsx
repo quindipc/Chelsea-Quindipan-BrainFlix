@@ -8,18 +8,15 @@ export default function Header() {
 
   // Event handler for upload button
   const uploadHandler = (event) => {
-    console.log(event);
     event.preventDefault();
   };
 
   // Event handler for search input
   const searchHandler = (event) => {
     const searchTerm = event.target.value;
-    console.log("Search term:", searchTerm);
   };
 
   return (
-    <>
       <header className="header">
         <a className="header__logo-index" href="../../index.js">
           <img
@@ -53,6 +50,5 @@ export default function Header() {
           />
         </form>
       </header>
-    </>
   );
 }
