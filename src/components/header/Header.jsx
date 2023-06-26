@@ -6,11 +6,13 @@ import brainflixAvatar from "../../assets/images/avatar/Mohan-muruge.jpg";
 
 export default function Header() {
 
+  // TODO: make this functional and add another page??
   // Event handler for upload button
   const uploadHandler = (event) => {
     event.preventDefault();
   };
 
+  // TODO:
   // Event handler for search input
   const searchHandler = (event) => {
     const searchTerm = event.target.value;
@@ -24,7 +26,9 @@ export default function Header() {
             src={brainflixLogo}
             alt="BrainFlix Logo"
           />
-        </a>
+      </a>
+      
+      {/* TODO: make this functional and add page to Upload page  */}
         <form
           onClick={(event) => uploadHandler(event)}
           className="header__form"

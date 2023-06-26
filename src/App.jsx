@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./App.scss";
+
 
 // Components
 import Header from "./components/header/Header";
@@ -8,8 +10,12 @@ import Comments from "./components/comments/Comments";
 import NextVideo from "./components/video/NextVideo";
 import Video from "./components/video/Video";
 
+//TODO: remove this, replace with API/useEffect
 import data from "./data/video-details.json"; // Video details (JSON)
 import videos from "./data/videos.json"; // Videos (JSON)
+
+// const API_KEY = "257751fa-d1f7-4f35-98cc-aaeb7fd20b9a";
+// const BASE_URL = "https://project-2-api.herokuapp.com";
 
 export default function App() {
   const [nextVideos, setNextVideos] = useState([]);
@@ -25,6 +31,7 @@ export default function App() {
     }
   };
 
+  // TODO: edit this to reflect useState to grab the data to display 
   /**
    * Empty dependencies as we only want this to run on the initial load
    * to populate our initial video details and grab our upcomming videos
@@ -38,6 +45,8 @@ export default function App() {
     }
   }, []);
 
+
+  // TODO: Add React Router to link to routes/page
   return (
     <>
       <Header />
