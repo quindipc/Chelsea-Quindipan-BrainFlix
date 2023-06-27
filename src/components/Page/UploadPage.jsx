@@ -6,7 +6,6 @@ export default function UploadPage() {
         <>
             {/* TODO: Ensure that the upload button in the Header is linked to this page */}
             <Header />  
-            
             <h1 className="upload__title">Upload Video</h1>
             <h2 className="upload__subheader">Video Thumbnail</h2>
             {/* <img className="upload__thumbnail"src={thumbnail} alt="bike thumbnail" /> */}
@@ -19,10 +18,10 @@ export default function UploadPage() {
                 <input className="upload__input" type="text" />
 
                 {/* TODO: Add an event handler that handles the submission */}
-                <button>Publish</button>
+                <button onSubmit="">Publish</button>
 
                 {/* TODO: Pressing this button should cancel and return to home page */}
-                <button>Cancel</button>
+                <button onClick="">Cancel</button>
             </form>
         </>
 

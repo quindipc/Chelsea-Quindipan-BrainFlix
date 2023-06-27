@@ -14,17 +14,78 @@ import Video from "./components/video/Video";
 import UploadPage from "./components/Page/UploadPage";
 
 //TODO: remove this, replace with API/useEffect
-import data from "./data/video-details.json"; // Video details (JSON)
-import videos from "./data/videos.json"; // Videos (JSON)
-
-// const API_KEY = "257751fa-d1f7-4f35-98cc-aaeb7fd20b9a";
-// const BASE_URL = "https://project-2-api.herokuapp.com";
+// import data from "./data/video-details.json"; // Video details (JSON)
+// import videos from "./data/videos.json"; // Videos (JSON)
 
 export default function App() {
   const [nextVideos, setNextVideos] = useState([]);
   const [selectedVideoDetails, setSelectedVideoDetails] = useState({});
 
-  // Finds and stores the selected videos details
+  const API_KEY = "257751fa-d1f7-4f35-98cc-aaeb7fd20b9a";
+  const BASE_URL = "https://project-2-api.herokuapp.com/";
+
+  // steps:
+  // 1) create a useEffect
+  // 2) create a callback function with axios
+  // 3) set the response data into state
+  // 4) dependencies?? depends on when we want it to run when the component mounts
+
+  // Do I need useParams(); here?
+
+  //   useEffect(() => {
+  //     axios.get(`${BASE_URL}`)
+  //       .then(response => {
+  //         console.log(response.data);
+  //         setNextVideos(response.data);
+  //     })
+  // })
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Fetch video details from API
+        const response = await axios.get(`${BASE_URL}/videos?api_key=${API_KEY}`);
+        console.log(response.data);
+        const videoDetails = response.data;
+
+        if (videoDetails.length > 0) {
+          setSelectedVideoDetails(videoDetails[0]);
+        }
+
+        // Fetch next videos from API
+        const nextVideosResponse = await axios.get(`${BASE_URL}/videos?api_key=${API_KEY}`);
+        const nextVideosData = nextVideosResponse.data;
+
+        if (nextVideosData.length > 0) {
+          setNextVideos(nextVideosData);
+        }
+      } catch (error) {
+        console.log("Error fetching data:", error);
+      }
+
+    };
+
+    fetchData();
+  }, []);
+
+  //  * Empty dependencies as we only want this to run on the initial load
+  //  * to populate our initial video details and grab our upcomming videos
+  //  */
+
+  // Do I still need this? 
+  // useEffect(() => {
+  //   if (data != null) {
+  //     setSelectedVideoDetails(data[0]);
+  //   }
+  //   if (videos != null) {
+  //     setNextVideos(videos);
+  //   }
+  // }, []);
+
+
+  // {BASE_URL}/videos:id?api_key=${API_KEY} -- how do i use this?? need the id
+
+  // // Finds and stores the selected videos details
   const getVideoDetails = (videoId) => {
     // Get the selected video details
     const details = data?.find(({ id }) => id === videoId);
@@ -34,33 +95,14 @@ export default function App() {
     }
   };
 
-  // TODO: edit this to reflect useState to grab the data to display
-  /**
-   * Empty dependencies as we only want this to run on the initial load
-   * to populate our initial video details and grab our upcomming videos
-   */
-  useEffect(() => {
-    if (data != null) {
-      setSelectedVideoDetails(data[0]);
-    }
-    if (videos != null) {
-      setNextVideos(videos);
-    }
-  }, []);
-
-  // TODO: Add React Router to link to routes/page -- route would be in the header upload button?
   return (
     <>
-      {/* <Header /> */}
       <BrowserRouter>
         <Routes>
-          {/* Need to create a home page that will link to the Logo */}
           <Route path="/" element={<Header />} />
-          {/* Need to create an Upload page that links to the upload button */}
           <Route path="/upload" element={<UploadPage />} />
         </Routes>
       </BrowserRouter>
-      {/* <Header /> */}
       <Video selected={selectedVideoDetails} />
       <div className="container">
         <div className="main">
@@ -80,6 +122,4 @@ export default function App() {
       </div>
     </>
   );
-
-  // TODO: Create a function for a 404 not found? maybe not necessary.. good for catching error
 }

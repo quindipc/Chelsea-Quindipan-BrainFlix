@@ -7,11 +7,11 @@ import brainflixAvatar from "../../assets/images/avatar/Mohan-muruge.jpg";
 
 export default function Header() {
 
-  // TODO: make this functional and add another page??
+  // TODO: add to uploadpage
   // Event handler for upload button
-  const uploadHandler = (event) => {
-    event.preventDefault();
-  };
+  // const uploadHandler = (event) => {
+  //   event.preventDefault();
+  // };
 
   // TODO:
   // Event handler for search input
@@ -20,20 +20,18 @@ export default function Header() {
   };
 
   return (
-    // Do I make a seperate component for the browser routers?? 
     <header className="header">
-      {/* Change to Link to  */}
-        <a className="header__logo-index" href="/">
+        <Link  to="/" className="header__logo-index">
           <img
             className="header__logo"
             src={brainflixLogo}
             alt="BrainFlix Logo"
           />
-      </a>
-      
-      {/* TODO: make this functional and add page to Upload page  */}
+      </Link>
+
+      {/* remove upload handler here and move to upload page */}
         <form
-          onClick={(event) => uploadHandler(event)}
+          // onClick={(event) => uploadHandler(event)}
           className="header__form"
         >
           <div className="header__search-container">
