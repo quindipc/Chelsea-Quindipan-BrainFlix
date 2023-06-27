@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Header.scss";
 
 // Assets
@@ -19,8 +20,10 @@ export default function Header() {
   };
 
   return (
-      <header className="header">
-        <a className="header__logo-index" href="../../index.js">
+    // Do I make a seperate component for the browser routers?? 
+    <header className="header">
+      {/* Change to Link to  */}
+        <a className="header__logo-index" href="/">
           <img
             className="header__logo"
             src={brainflixLogo}
@@ -46,7 +49,7 @@ export default function Header() {
               alt="BrainFlix Avatar"
             />
           </div>
-          <button className="header__form--upload">Upload</button>
+          <Link to="/upload"> <button className="header__form--upload">Upload</button></Link>
           <img
             className="header__form--avatar-tablet"
             src={brainflixAvatar}
