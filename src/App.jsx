@@ -13,7 +13,6 @@ import Video from "./components/video/Video";
 // Pages
 import UploadPage from "./components/Page/UploadPage";
 
-//TODO: remove this, replace with API/useEffect
 // import data from "./data/video-details.json"; // Video details (JSON)
 // import videos from "./data/videos.json"; // Videos (JSON)
 
@@ -24,77 +23,44 @@ export default function App() {
   const API_KEY = "257751fa-d1f7-4f35-98cc-aaeb7fd20b9a";
   const BASE_URL = "https://project-2-api.herokuapp.com/";
 
-  // steps:
-  // 1) create a useEffect
-  // 2) create a callback function with axios
-  // 3) set the response data into state
-  // 4) dependencies?? depends on when we want it to run when the component mounts
 
-  // Do I need useParams(); here?
-
-  //   useEffect(() => {
-  //     axios.get(`${BASE_URL}`)
-  //       .then(response => {
-  //         console.log(response.data);
-  //         setNextVideos(response.data);
-  //     })
-  // })
-
+  // Set Next Videos from the list
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // Fetch video details from API
-        const response = await axios.get(`${BASE_URL}/videos?api_key=${API_KEY}`);
-        console.log(response.data);
-        const videoDetails = response.data;
-
-        if (videoDetails.length > 0) {
-          setSelectedVideoDetails(videoDetails[0]);
-        }
-
-        // Fetch next videos from API
-        const nextVideosResponse = await axios.get(`${BASE_URL}/videos?api_key=${API_KEY}`);
-        const nextVideosData = nextVideosResponse.data;
-
-        if (nextVideosData.length > 0) {
-          setNextVideos(nextVideosData);
-        }
-      } catch (error) {
-        console.log("Error fetching data:", error);
-      }
-
-    };
-
-    fetchData();
+    axios
+      .get(`${BASE_URL}videos?api_key=${API_KEY}`)
+      .then((response) => {
+        setNextVideos(response.data);
+      })
+      .catch((error) => {
+        console.log("Error fetching next videos:", error);
+      });
   }, []);
 
-  //  * Empty dependencies as we only want this to run on the initial load
-  //  * to populate our initial video details and grab our upcomming videos
-  //  */
+  // Set Selected Video 
+  useEffect(() => {
+    axios
+      .get(`${BASE_URL}videos?api_key=${API_KEY}`)
+      .then((response) => {
+        if (response.data.length > 0) {
+          setSelectedVideoDetails(response.data[0]);
+        }
+      })
+      .catch((error) => {
+        console.log("Error fetching selected video details:", error);
+      });
+  }, []);
 
-  // Do I still need this? 
-  // useEffect(() => {
-  //   if (data != null) {
-  //     setSelectedVideoDetails(data[0]);
-  //   }
-  //   if (videos != null) {
-  //     setNextVideos(videos);
-  //   }
-  // }, []);
-
-
-  // {BASE_URL}/videos:id?api_key=${API_KEY} -- how do i use this?? need the id
-
-  // // Finds and stores the selected videos details
+  // Finds and stores the selected video's details
   const getVideoDetails = (videoId) => {
-    // Get the selected video details
-    const details = data?.find(({ id }) => id === videoId);
-
-    if (details != null) {
-      setSelectedVideoDetails(details);
-    }
+    axios
+      .get(`${BASE_URL}videos/${videoId}?api_key=${API_KEY}`)
+      .then((response) => {
+        setSelectedVideoDetails(response.data);
+      })
+      .catch((error) => {
+        console.log("Error fetching video details:", error);
+      });
   };
-
   return (
     <>
       <BrowserRouter>
