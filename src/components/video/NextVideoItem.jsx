@@ -1,13 +1,11 @@
 import "./NextVideoItem.scss";
 
-export default function NextVideoItem({
-  id,
-  image,
-  title,
-  channel,
-  getVideoDetails,
-}) {
-  
+export default function NextVideoItem({video}) {
+  const { id,
+    image,
+    title,
+    channel,
+    getVideoDetails } = video;
   return (
     // Change to the next video when clicked and display it
     <div key={id} className="nextvideoitem" onClick={() => getVideoDetails(id)}>
