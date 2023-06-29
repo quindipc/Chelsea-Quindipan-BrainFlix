@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./NextVideo.scss";
+import { Link } from "react-router-dom";
 
 // Components
 import NextVideoItem from "./NextVideoItem";
@@ -33,19 +34,21 @@ export default function NextVideo({
 
       {/* Filter out the videos from the clicked one */}
       <h3 className="nextvideo__title">Next videos</h3>
-      {videos
-        .filter(({ id }) => id !== selectedVideoDetails?.id)
-        .map(({ id, image, title, channel, video }) => (
-          <NextVideoItem
-            key={id}
-            id={id}
-            image={image}
-            title={title}
-            channel={channel}
-            video={video}
-            getVideoDetails={getVideoDetails}
-          />
-        ))}
+      <Link to={`/video/${selectedVideoDetails.id}`}>
+        {videos
+          .filter(({ id }) => id !== selectedVideoDetails?.id)
+          .map(({ id, image, title, channel, video }) => (
+            <NextVideoItem
+              key={id}
+              id={id}
+              image={image}
+              title={title}
+              channel={channel}
+              video={video}
+              getVideoDetails={getVideoDetails}
+            />
+          ))}
+      </Link>
     </section>
   );
 }

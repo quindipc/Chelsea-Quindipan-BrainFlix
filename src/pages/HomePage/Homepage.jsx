@@ -1,4 +1,5 @@
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 
 // Components
@@ -21,6 +22,7 @@ export default function Homepage() {
       .get(`${BASE_URL}videos?api_key=${API_KEY}`)
       .then((response) => {
         setNextVideos(response.data);
+        console.log(response.data)
       })
       .then((response) => {
         if (response.data.length > 0) {
@@ -46,6 +48,8 @@ export default function Homepage() {
   // }, []);
 
   // Finds and stores the selected video's details
+  const {id}= useParams();
+  
   const getVideoDetails = (videoId) => {
     axios
       .get(`${BASE_URL}videos/${videoId}?api_key=${API_KEY}`)
@@ -53,12 +57,12 @@ export default function Homepage() {
         setSelectedVideoDetails(response.data);
 
         // // initial state -- not working, fix this -- should this even be in here?
-        // if (response.data != null) {
-        //   selectedVideoDetails(response.data[0]);
-        // }
-        // if (response.video != null) {
-        //   setNextVideos(response.video);
-        // }
+        if (response.data != null) {
+          selectedVideoDetails(response.data[0]);
+        }
+        if (response.video != null) {
+          setNextVideos(response.video);
+        }
       })
       .catch((error) => {
         console.log("Error fetching video details:", error);

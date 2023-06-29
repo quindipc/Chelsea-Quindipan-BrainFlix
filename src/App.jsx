@@ -1,5 +1,5 @@
 // import React, { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
 // import axios from "axios";
 import "./App.scss";
 
@@ -77,35 +77,17 @@ export default function App() {
 //    }
 //  }, []);
 
-  const { } = useParams();
+
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Homepage/>} />
+          <Route path="/" element={<Homepage />} />
+          {/* useparams? map over this???  */}
           <Route path="/video/:id" element={<Homepage/>} />
           <Route path="/upload" element={<UploadPage />} />
         </Routes>
       </BrowserRouter>
-
-
-      {/* <Video selected={selectedVideoDetails} />
-      <div className="container">
-        <div className="main">
-          <VideoDetails selected={selectedVideoDetails} />
-          <Comments
-            comments={selectedVideoDetails?.comments ?? []}
-            setSelectedVideoDetails={setSelectedVideoDetails}
-          />
-        </div>
-        <div className="playlist">
-          <NextVideo
-            videos={nextVideos}
-            selectedVideoDetails={selectedVideoDetails}
-            getVideoDetails={getVideoDetails}
-          />
-        </div>
-      </div> */}
     </>
   );
 }
