@@ -47,7 +47,7 @@ export default function Header() {
               alt="BrainFlix Avatar"
             />
           </div>
-          <Link to="/upload"> <button className="header__form--upload">Upload</button></Link>
+         <button className="header__form--upload"> <Link to="/upload">Upload</Link></button>
           <img
             className="header__form--avatar-tablet"
             src={brainflixAvatar}

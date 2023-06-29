@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import axios from "axios";
 
 // Components
@@ -22,52 +22,45 @@ export default function Homepage() {
       .get(`${BASE_URL}videos?api_key=${API_KEY}`)
       .then((response) => {
         setNextVideos(response.data);
-        console.log(response.data)
+
+        //initial video -- doesnt work
+        if (response.video != null) {
+          nextVideos(response.video);
+        }
+
       })
       .then((response) => {
         if (response.data.length > 0) {
           setSelectedVideoDetails(response.data[0]);
-        }
-      }).catch((error) => {
-        console.log("Error fetching video details:", error);
-      });
-  }, []);
 
-  // // // Set Selected Video
-  // useEffect(() => {
-  //   axios
-  //     .get(`${BASE_URL}videos?api_key=${API_KEY}`)
-  //     .then((response) => {
-  //       if (response.data.length > 0) {
-  //         setSelectedVideoDetails(response.data[0]);
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.log("Error fetching selected video details:", error);
-  //     });
-  // }, []);
-
-  // Finds and stores the selected video's details
-  const {id}= useParams();
-  
-  const getVideoDetails = (videoId) => {
-    axios
-      .get(`${BASE_URL}videos/${videoId}?api_key=${API_KEY}`)
-      .then((response) => {
-        setSelectedVideoDetails(response.data);
-
-        // // initial state -- not working, fix this -- should this even be in here?
-        if (response.data != null) {
-          selectedVideoDetails(response.data[0]);
-        }
-        if (response.video != null) {
-          setNextVideos(response.video);
+          // // initial video details -- doesnt work
+          if (response.data != null) {
+            selectedVideoDetails(response.data[0]);
+          }
         }
       })
       .catch((error) => {
         console.log("Error fetching video details:", error);
       });
+  }, [nextVideos, selectedVideoDetails]);
+  
+  // const {id}= useParams(); I didnt need to use this?? why ?
+  
+  const getVideoDetails = (videoId) => {
+    axios
+    .get(`${BASE_URL}videos/${videoId}?api_key=${API_KEY}`)
+    .then((response) => {
+      setSelectedVideoDetails(response.data);
+    })
+      .catch((error) => {
+        console.log("Error fetching video details:", error);
+      });
   };
+
+      // add a loading state??
+      if (!selectedVideoDetails || !nextVideos) {
+        return <> Loading....</>;
+      }
 
   return (
     <>
