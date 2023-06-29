@@ -1,4 +1,4 @@
-import Header from "../header/Header";
+import Header from "../../components/header/Header";
 // import thumbnail from "../../assets/images/thumbnail"
 
 export default function UploadPage() {
