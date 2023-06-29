@@ -17,30 +17,35 @@
 
 // Mobile Fonts 
 @mixin page-header-mobile {
+    font-family: 'AvenirNextLTPro-Bold';
     font-size: 24px;
     line-height: 32px;
     font-style: bold;
     font-weight: 700;
 }
 @mixin section-header-mobile {
+    font-family: 'AvenirNextLTPro-Bold';
     font-size: 12px;
     line-height: 20px;
     font-style: bold;
     font-weight: 700;
 }
 @mixin subheader-mobile {
+    font-family: 'AvenirNextLTPro-Bold';
     font-size: 13px;
     line-height: 18px;
     font-style: bold;
     font-weight: 700;
 }
 @mixin body-copy-mobile {
+    font-family: 'AvenirNextLTPro-Regular';
     font-size: 13px;
     line-height: 18px;
     font-style: normal;
     font-weight: 400;
 }
 @mixin labels-buttons-mobile {
+    font-family: 'AvenirNextLTPro-Bold';
     font-size: 10px;
     line-height: 20px;
     font-style: bold;
@@ -50,30 +55,35 @@
 
 // Desktop Fonts
 @mixin page-header-desktop {
+    font-family: 'AvenirNextLTPro-Bold';
     font-size: 33px;
     line-height: 44px;
     font-style: bold;
     font-weight: 700;
 }
 @mixin section-header-desktop {
+    font-family: 'AvenirNextLTPro-Bold';
     font-size: 12px;
     line-height: 20px;
     font-style: bold;
     font-weight: 700;
 }
 @mixin subheader-desktop {
+    font-family: 'AvenirNextLTPro-Bold';
     font-size: 14px;
     line-height: 22px;
     font-style: bold;
     font-weight: 700;
 }
 @mixin body-copy-desktop {
+    font-family: 'AvenirNextLTPro-Regular';
     font-size: 14px;
     line-height: 22px;
     font-style: normal;
     font-weight: 400;
 }
 @mixin labels-buttons-desktop {
+    font-family: 'AvenirNextLTPro-Bold';
     font-size: 12px;
     line-height: 20px;
     font-style: bold;
