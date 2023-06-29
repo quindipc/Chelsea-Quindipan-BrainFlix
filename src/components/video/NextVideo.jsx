@@ -15,21 +15,17 @@ export default function NextVideo({
 
       {/* Filter out the videos from the clicked one */}
       <h3 className="nextvideo__title">Next videos</h3>
-        {videos
-          .filter(({ id }) => id !== selectedVideoDetails?.id)
-          .map(({ id, image, title, channel, video }) => (
-            <Link to={`/video/${id}`}>
+      {videos
+        .filter(({ id }) => id !== selectedVideoDetails?.id)
+        .map((video) => (
+          <Link to={`/video/${video.id}`} key={video.id}>
             <NextVideoItem
-              key={id}
-              id={id}
-              image={image}
-              title={title}
-              channel={channel}
               video={video}
               getVideoDetails={getVideoDetails}
-              />
-              </Link>
-          ))}
+            />
+          </Link>
+        ))}
     </section>
   );
+}
 }
