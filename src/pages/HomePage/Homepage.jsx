@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-// import { useParams } from "react-router-dom";
 import axios from "axios";
 
 // Components
@@ -14,53 +13,37 @@ export default function Homepage() {
   const BASE_URL = "https://project-2-api.herokuapp.com/";
 
   const [nextVideos, setNextVideos] = useState([]);
-  const [selectedVideoDetails, setSelectedVideoDetails] = useState({});
+  const [selectedVideoDetails, setSelectedVideoDetails] = useState(null);
 
-  // // Set Next Videos from the list -- move this to Next Videos??
+  const getVideoDetails = (videoId) => {
+    axios
+      .get(`${BASE_URL}videos/${videoId}?api_key=${API_KEY}`)
+      .then((response) => {
+        setSelectedVideoDetails(response.data);
+      })
+      .catch((error) => {
+        console.log("Error fetching video details:", error);
+      });
+  };
+
   useEffect(() => {
     axios
       .get(`${BASE_URL}videos?api_key=${API_KEY}`)
       .then((response) => {
         setNextVideos(response.data);
 
-        //initial video -- doesnt work
-        if (response.video != null) {
-          nextVideos(response.video);
-        }
-
-      })
-      .then((response) => {
-        if (response.data.length > 0) {
-          setSelectedVideoDetails(response.data[0]);
-
-          // // initial video details -- doesnt work
-          if (response.data != null) {
-            selectedVideoDetails(response.data[0]);
-          }
-        }
+        // Get initial video details
+        getVideoDetails(response.data?.[0]?.id);
       })
       .catch((error) => {
         console.log("Error fetching video details:", error);
       });
-  }, [nextVideos, selectedVideoDetails]);
-  
-  // const {id}= useParams(); I didnt need to use this?? why ?
-  
-  const getVideoDetails = (videoId) => {
-    axios
-    .get(`${BASE_URL}videos/${videoId}?api_key=${API_KEY}`)
-    .then((response) => {
-      setSelectedVideoDetails(response.data);
-    })
-      .catch((error) => {
-        console.log("Error fetching video details:", error);
-      });
-  };
+  }, []);
 
-      // add a loading state??
-      if (!selectedVideoDetails || !nextVideos) {
-        return <> Loading....</>;
-      }
+
+  if (!selectedVideoDetails || !nextVideos) {
+    return <>Loading....</>;
+  }
 
   return (
     <>
