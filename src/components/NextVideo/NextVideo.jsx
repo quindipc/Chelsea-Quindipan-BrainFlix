@@ -2,7 +2,7 @@ import "./NextVideo.scss";
 import { Link } from "react-router-dom";
 
 // Components
-import NextVideoItem from "./NextVideoItem";
+import NextVideoItem from "../NextVideoItem/NextVideoItem";
 
 export default function NextVideo({ videos, getVideoDetails, selectedVideoDetails }) {
   return (

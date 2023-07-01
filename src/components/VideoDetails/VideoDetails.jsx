@@ -2,7 +2,7 @@ import React from "react";
 import "./VideoDetails.scss";
 
 // Components
-import VideoInfo from "./VideoInfo";
+import VideoInfo from "../VideoInfo/VideoInfo";
 
 export default function VideoDetails({ selected }) {
 

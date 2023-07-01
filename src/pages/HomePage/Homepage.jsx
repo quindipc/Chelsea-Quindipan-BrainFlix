@@ -3,11 +3,11 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 // Components
-import Header from "../../components/header/Header";
-import Video from "../../components/video/Video";
-import VideoDetails from "../../components/video/VideoDetails";
-import Comments from "../../components/comments/Comments";
-import NextVideo from "../../components/video/NextVideo";
+import Header from "../../components/Header/Header";
+import Video from "../../components/Video/Video";
+import VideoDetails from "../../components/VideoDetails/VideoDetails";
+import Comments from "../../components/Comments/Comments";
+import NextVideo from "../../components/NextVideo/NextVideo";
 
 export default function Homepage() {
   const API_KEY = "257751fa-d1f7-4f35-98cc-aaeb7fd20b9a";

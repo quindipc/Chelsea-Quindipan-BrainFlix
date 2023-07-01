@@ -5,7 +5,7 @@ import viewsIcon from "../../assets/images/icons/views.svg";
 import likesIcon from "../../assets/images/icons/likes.svg";
 
 // Components
-import Timestamp from "./timestamp/Timestamp";
+import Timestamp from "../Timestamp/Timestamp";
 
 export default function VideoInfo({ activity }) {
   

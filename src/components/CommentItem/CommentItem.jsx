@@ -2,7 +2,7 @@ import React from "react";
 import "./CommentItem.scss";
 
 // Components
-import Timestamp from "../video/timestamp/Timestamp";
+import Timestamp from "../Timestamp/Timestamp";
 
 export default function CommentItem({ comment }) {
   return (

@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 //Components
-import Header from "../../components/header/Header";
+import Header from "../../components/Header/Header";
 
 //Assets
 import thumbnail from "../../assets/images/thumbnail/Upload-video-preview.jpg";

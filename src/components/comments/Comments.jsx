@@ -3,8 +3,8 @@ import { v4 as uuidv4 } from 'uuid';
 import "./Comments.scss";
 
 // Components
-import CommentItem from "./CommentItem";
-import CommentsForm from "./CommentsForm";
+import CommentItem from "../CommentItem/CommentItem";
+import CommentsForm from "../CommentsForm/CommentsForm";
 
 export default function Comments({ comments, setSelectedVideoDetails  }) {
   // New Comment state
