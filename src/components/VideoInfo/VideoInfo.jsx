@@ -19,9 +19,9 @@ export default function VideoInfo({ activity }) {
           <h2 className="videoinfo__info videoinfo__info-channel">
             By {channel}
           </h2>
-          <p className="videoinfo__date">
+          <div className="videoinfo__date">
             <Timestamp timestamp={timestamp} />
-          </p>
+          </div>
         </div>
         <div className="videoinfo__container videoinfo__container--right">
           <div className="videoinfo__engagement">

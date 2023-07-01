@@ -6,6 +6,6 @@ export default function Timestamp({ timestamp }) {
   const formattedTimestamp = dateFormat(timestamp, "paddedShortDate");
 
   return (
-    <p>{formattedTimestamp}</p>
+    <span>{formattedTimestamp}</span>
   );
 }
