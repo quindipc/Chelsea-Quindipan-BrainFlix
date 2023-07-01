@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 
 // Components
@@ -15,30 +16,39 @@ export default function Homepage() {
   const [nextVideos, setNextVideos] = useState([]);
   const [selectedVideoDetails, setSelectedVideoDetails] = useState(null);
 
+  // TODO: on scroll when video is clicked 
+  const { videoId } = useParams();
+
   const getVideoDetails = (videoId) => {
     axios
       .get(`${BASE_URL}videos/${videoId}?api_key=${API_KEY}`)
       .then((response) => {
         setSelectedVideoDetails(response.data);
+
+        window.scrollTo({ top: 0, behavior: "smooth" });
       })
       .catch((error) => {
         console.log("Error fetching video details:", error);
       });
   };
 
-  useEffect(() => {
+   useEffect(() => {
     axios
       .get(`${BASE_URL}videos?api_key=${API_KEY}`)
       .then((response) => {
         setNextVideos(response.data);
 
         // Get initial video details
-        getVideoDetails(response.data?.[0]?.id);
+        if (videoId) {
+          getVideoDetails(videoId);
+        } else {
+          getVideoDetails(response.data?.[0]?.id);
+        }
       })
       .catch((error) => {
         console.log("Error fetching video details:", error);
       });
-  }, []);
+  }, [videoId]);
 
 
   if (!selectedVideoDetails || !nextVideos) {

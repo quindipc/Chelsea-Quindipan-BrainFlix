@@ -91,11 +91,13 @@
     &--upload {
       background-image: url("../../assets/images/icons/upload.svg");
       background-position: left center;
+      display:flex;
+       justify-content: center;
+        align-items: center;
+        text-decoration: none;
       @include buttonStyles;
 
       @include tablet {
-        justify-content: center;
-        align-items: center;
         width: $button-width-desktop;
         @include labels-buttons-desktop;
       }
