@@ -1,30 +1,71 @@
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+
+//Components
 import Header from "../../components/header/Header";
-// import thumbnail from "../../assets/images/thumbnail"
+
+//Assets
+import thumbnail from "../../assets/images/thumbnail/Upload-video-preview.jpg";
 
 export default function UploadPage() {
-    return (
-        <>
-            {/* TODO: Ensure that the upload button in the Header is linked to this page */}
-            <Header />  
-            <h1 className="upload__title">Upload Video</h1>
-            <h2 className="upload__subheader">Video Thumbnail</h2>
-            {/* <img className="upload__thumbnail"src={thumbnail} alt="bike thumbnail" /> */}
-            <form action="submit">
+  const [showSuccess, setSuccess] = useState(false);
+  const [showError, setError] = useState(false);
+  const navigate = useNavigate();
 
-                {/* TODO:Add error handling for the inputs  */}
-                <label  className="upload__subheader" htmlFor="">Title Your Video</label>
-                <input className="upload__input" type="text" />
-                <label  className="upload__subheader" htmlFor="">Add a video description</label>
-                <input className="upload__input" type="text" />
+  const publishHandler = (event) => {
+    event.preventDefault();
 
-                {/* TODO: Add an event handler that handles the submission */}
-                <button onSubmit="">Publish</button>
+    const title = event.target.elements.title.value;
+    const description = event.target.elements.description.value;
 
-                {/* TODO: Pressing this button should cancel and return to home page */}
-                <button onClick="">Cancel</button>
-            </form>
-        </>
+    // Error handling for empty fields
+    if (title.trim() === "" || description.trim() === "") {
+      setError(true);
+      return;
+    }
 
-        
+    setError(false);
+
+    //Return to homepage
+    setTimeout(() => {
+      setSuccess(true);
+      navigate("/");
+    }, 3000);
+  };
+
+  const cancelHandler = (event) => {
+    event.preventDefault();
+
+    const confirmCancel = window.confirm(
+      "Are you sure you would like to cancel?",
     );
+
+    if (confirmCancel) {
+      navigate("/");
+    }
+  };
+
+  return (
+    <>
+      <Header />
+      <h1 className="upload__title">Upload Video</h1>
+      <h2 className="upload__subheader">Video Thumbnail</h2>
+      <img className="upload__thumbnail" src={thumbnail} alt="bike thumbnail" />
+      <form onSubmit={publishHandler}>
+        <label className="upload__subheader" htmlFor="">
+          Title Your Video
+        </label>
+        <input className="upload__input" type="text" name="title" />
+        <label className="upload__subheader">Add a video description</label>
+        <input className="upload__input" type="text" name="description" />
+        {showError && <div>Please fill out all the fields</div>}
+        <button type="submit">Publish</button>
+        <button onClick={cancelHandler}>Cancel</button>
+      </form>
+
+      {showSuccess && (
+        <div className="success-notification">Upload successful!</div>
+      )}
+    </>
+  );
 }
