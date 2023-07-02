@@ -53,6 +53,7 @@ export default function UploadPage() {
     <>
       <Header />
       <div className="upload">
+        <hr className="upload__divider--mobile" />
         <h1 className="upload__title">Upload Video</h1>
         <hr className="upload__divider--desktop" />
         <div className="upload__container--desktop">

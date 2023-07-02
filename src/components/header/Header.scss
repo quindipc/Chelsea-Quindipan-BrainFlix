@@ -9,11 +9,12 @@
   align-items: center;
   flex-direction: column;
   padding: $padding-headlines-mobile;
-  padding-bottom: 0;
+  padding-bottom: 1rem;
   background-color: $white;
 
   @include tablet {
     flex-direction: row;
+    padding-bottom: 1.5rem;
   }
 
   &__logo {
@@ -118,17 +119,6 @@
     align-items: center;
     justify-content: center;
     padding: 1rem;
-  }
-
-  &__divider--mobile {
-@include dividerStyles;
-    width: 100%;
-    padding-top: 1rem;
-    margin-top: 1rem;
-
-    @include tablet {
-      display: none;
-    }
   }
 
   &__divider--desktop {

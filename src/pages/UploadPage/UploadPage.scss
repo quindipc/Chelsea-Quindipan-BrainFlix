@@ -12,13 +12,24 @@
   padding-top: 0;
 
   @include tablet {
-    padding-top: 1rem;
+    padding: $padding-components-desktop;
+    padding-top: 2.25rem;
   }
 
   @include desktop {
     margin: auto;
     max-width: 80rem;
     width: auto;
+  }
+
+  &__divider--mobile {
+    @include dividerStyles;
+    width: 100%;
+    padding-top: 1rem;
+
+    @include tablet {
+      display: none;
+    }
   }
 
   &__title {
@@ -39,7 +50,6 @@
       border: none;
       border-top: 0.0625rem solid $mercury;
       margin: auto;
-      padding-bottom: 1rem;
     }
   }
 
@@ -83,10 +93,11 @@
     color: $silver;
     text-transform: uppercase;
     padding: 1rem 0 0.25rem;
-    @include labels-buttons-mobile;
+    @include body-copy-mobile;
 
     @include tablet {
-      @include labels-buttons-desktop;
+      @include body-copy-desktop;
+      padding: 1.5rem 0 0.25rem;
     }
   }
 
@@ -111,9 +122,9 @@
     }
 
     &:focus {
-        outline: none;
-        border: 2px solid $brainFlix-Blue;
-      }
+      outline: none;
+      border: 2px solid $brainFlix-Blue;
+    }
   }
   &__error {
     color: $error;
@@ -220,7 +231,7 @@
       margin: auto;
       border-top: 0.0625rem solid $mercury;
       position: relative;
-      bottom: 6rem;
+      bottom: 4.5rem;
     }
   }
 

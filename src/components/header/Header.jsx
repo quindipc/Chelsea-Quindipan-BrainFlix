@@ -50,7 +50,6 @@ export default function Header() {
           alt="BrainFlix Avatar"
         />
       </form>
-      <hr className="header__divider--mobile" />
       </header>
       <hr className="header__divider--desktop" />
     </>
