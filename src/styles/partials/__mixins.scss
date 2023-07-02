@@ -104,3 +104,9 @@
     text-transform: uppercase;
     @include labels-buttons-mobile;
   }
+
+  @mixin dividerStyles {
+    border: none;
+    border-top: 0.0625rem solid $mercury;
+    margin: auto;
+  }

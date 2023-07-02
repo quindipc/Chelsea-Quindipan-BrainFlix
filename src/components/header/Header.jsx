@@ -15,6 +15,8 @@ export default function Header() {
 
 
   return (
+    <>
+    
     <header className="header">
       <Link to="/" className="header__logo-index" onClick={handleHistory}>
         <img
@@ -48,6 +50,9 @@ export default function Header() {
           alt="BrainFlix Avatar"
         />
       </form>
-    </header>
+      <hr className="header__divider--mobile" />
+      </header>
+      <hr className="header__divider--desktop" />
+    </>
   );
 }

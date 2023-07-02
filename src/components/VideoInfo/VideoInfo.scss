@@ -20,9 +20,7 @@
   }
 
   &__divider {
-    border: none;
-    border-top: 0.0625rem solid $mercury;
-    margin: auto;
+    @include dividerStyles;
     width: 100%;
     padding-bottom: 1rem;
   }
