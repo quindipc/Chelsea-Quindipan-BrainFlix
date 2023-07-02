@@ -1,4 +1,257 @@
-@use "./styles/partials/_fonts" as *;
-@use "./styles/partials/mixins" as *;
-@use "./styles/partials/resets" as *;
-@use "./styles/partials/variables" as *;
+@use "../../styles/partials/_fonts" as *;
+@use "../../styles/partials/_mixins" as *;
+@use "../../styles/partials/_resets" as *;
+@use "../../styles/partials/_variables" as *;
+
+.upload {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: $padding-components-mobile;
+  padding-top: 0;
+
+  @include tablet {
+    padding-top: 1rem;
+  }
+
+  @include desktop {
+    margin: auto;
+    max-width: 80rem;
+    width: auto;
+  }
+
+  &__title {
+    @include page-header-mobile;
+
+    @include tablet {
+      padding-bottom: 1.5rem;
+      @include page-header-desktop;
+    }
+  }
+  &__divider--desktop {
+    display: none;
+
+    @include tablet {
+      display: flex;
+      max-width: 80rem;
+      width: 100%;
+      border: none;
+      border-top: 0.0625rem solid $mercury;
+      margin: auto;
+      padding-bottom: 1rem;
+    }
+  }
+
+  &__container--desktop {
+    width: 100%;
+
+    @include desktop {
+      display: flex;
+      flex: 2;
+    }
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  &__thumbnail {
+    height: auto;
+    border-radius: 0.25rem;
+    background-color: $mercury;
+    width: 100%;
+
+    @include tablet {
+      width: 20rem;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    @include desktop {
+      padding-left: 1.5rem;
+    }
+  }
+
+  &__label {
+    color: $silver;
+    text-transform: uppercase;
+    padding: 1rem 0 0.25rem;
+    @include labels-buttons-mobile;
+
+    @include tablet {
+      @include labels-buttons-desktop;
+    }
+  }
+
+  &__input {
+    font-family: inherit;
+    border-radius: 0.25rem;
+    border: 1px solid $mercury;
+    background-color: $alabaster;
+    min-height: 2.25rem;
+    width: 20rem;
+    width: 100%;
+    padding: 0 0.25rem 0 0.5rem;
+    @include body-copy-mobile;
+
+    @include tablet {
+      @include body-copy-desktop;
+    }
+
+    &--description {
+      min-height: 2.25rem;
+      height: 5rem;
+    }
+
+    &:focus {
+        outline: none;
+        border: 2px solid $brainFlix-Blue;
+      }
+  }
+  &__error {
+    color: $error;
+    padding-top: 1rem;
+  }
+
+  &__divider--tablet {
+    display: none;
+
+    @include tablet {
+      display: flex;
+      margin-top: 1.5rem;
+      border-top: 0.0625rem solid $mercury;
+      max-width: 80rem;
+      width: auto;
+    }
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__container--form {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+
+    @include tablet {
+      padding-top: 1.5rem;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    @include desktop {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__container--actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    @include tablet {
+      flex-direction: row-reverse;
+    }
+
+    @include desktop {
+      margin-left: auto;
+      justify-content: flex-end;
+      padding-top: 2rem;
+    }
+  }
+
+  &__publish {
+    background-image: url("../../assets/images/icons/publish.svg");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include buttonStyles;
+
+    @include tablet {
+      margin-top: 0;
+      width: $button-width-desktop;
+    }
+
+    &:hover {
+      background-color: $brainFlix-DarkBlue;
+      cursor: pointer;
+    }
+  }
+
+  &__cancel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $brainFlix-Blue;
+    padding: $padding-components-mobile;
+    padding-top: 2rem;
+    @include body-copy-mobile;
+    cursor: pointer;
+
+    @include tablet {
+      padding-right: 5rem;
+      padding-top: 1rem;
+      @include body-copy-desktop;
+    }
+  }
+
+  &__divider--form {
+    display: none;
+
+    @include tablet {
+      display: none;
+    }
+
+    @include desktop {
+      display: flex;
+      max-width: 80rem;
+      width: 100%;
+      border: none;
+      margin: auto;
+      border-top: 0.0625rem solid $mercury;
+      position: relative;
+      bottom: 6rem;
+    }
+  }
+
+  &__success {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $success;
+    @include body-copy-mobile;
+
+    @include tablet {
+      justify-content: flex-end;
+    }
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__success--desktop {
+    display: none;
+
+    @include tablet {
+      display: none;
+    }
+    @include desktop {
+      display: flex;
+      justify-content: flex-end;
+      color: $success;
+      margin-left: auto;
+      @include body-copy-desktop;
+    }
+  }
+}
