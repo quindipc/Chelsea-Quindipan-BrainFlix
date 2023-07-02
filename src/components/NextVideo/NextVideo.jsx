@@ -12,7 +12,7 @@ export default function NextVideo({ videos, getVideoDetails, selectedVideoDetail
       {videos
         .filter(({ id }) => id !== selectedVideoDetails?.id)
         .map((video) => (
-          <Link to={`/video/${video.id}`} key={video.id}>
+          <Link className="nextvideo__link" to={`/video/${video.id}`} key={video.id}>
             <NextVideoItem video={video} getVideoDetails={getVideoDetails} />
           </Link>
         ))}

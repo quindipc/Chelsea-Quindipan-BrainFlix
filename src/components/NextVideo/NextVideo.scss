@@ -4,36 +4,40 @@
 @use "../../styles/partials/_variables" as *;
 
 .nextvideo {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: $padding-components-mobile;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: $padding-components-mobile;
+
+  @include tablet {
+    padding: $padding-components-desktop;
+  }
+
+  &__title {
+    padding: 1rem 0;
+    color: $silver;
+    text-transform: uppercase;
+    @include section-header-mobile;
 
     @include tablet {
-        padding: $padding-components-desktop;
+      @include section-header-desktop;
+      padding: $padding-components-desktop;
+      padding-left: 0;
     }
+  }
 
-    &__title {
-        padding: 1rem 0;
-        color: $silver;
-        text-transform: uppercase;
-        @include section-header-mobile;
+  &__divider {
+    border: none;
+    border-top: 0.0625rem solid $mercury;
+    margin: auto;
+    width: 100%;
 
-        @include tablet {
-            @include section-header-desktop;
-            padding: $padding-components-desktop;
-            padding-left: 0;
-        }
+    @include desktop {
+      display: none;
     }
-  
-    &__divider {
-        border: none;
-        border-top: 0.0625rem solid $mercury;
-        margin: auto;
-        width: 100%;
+  }
 
-        @include desktop {
-            display: none;
-        }
-      }
+  &__link {
+    text-decoration: none;
+  }
 }
