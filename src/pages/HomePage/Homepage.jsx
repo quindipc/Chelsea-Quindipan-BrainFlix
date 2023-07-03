@@ -16,8 +16,7 @@ export default function Homepage() {
   const [nextVideos, setNextVideos] = useState([]);
   const [selectedVideoDetails, setSelectedVideoDetails] = useState(null);
 
-  // TODO: on scroll when video is clicked 
-  const { videoId } = useParams();
+  const { id } = useParams();
 
   const getVideoDetails = (videoId) => {
     axios
@@ -25,22 +24,23 @@ export default function Homepage() {
       .then((response) => {
         setSelectedVideoDetails(response.data);
 
+        // Scroll to top when a video is clicked
         window.scrollTo({ top: 0, behavior: "smooth" });
       })
       .catch((error) => {
         console.log("Error fetching video details:", error);
       });
   };
-
-   useEffect(() => {
+  
+  useEffect(() => {
     axios
       .get(`${BASE_URL}videos?api_key=${API_KEY}`)
       .then((response) => {
         setNextVideos(response.data);
 
         // Get initial video details
-        if (videoId) {
-          getVideoDetails(videoId);
+        if (id) {
+          getVideoDetails(id);
         } else {
           getVideoDetails(response.data?.[0]?.id);
         }
@@ -48,8 +48,7 @@ export default function Homepage() {
       .catch((error) => {
         console.log("Error fetching video details:", error);
       });
-  }, [videoId]);
-
+  }, [id]);
 
   if (!selectedVideoDetails || !nextVideos) {
     return <>Loading....</>;

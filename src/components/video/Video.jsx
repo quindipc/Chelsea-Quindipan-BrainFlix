@@ -4,8 +4,6 @@ import "./Video.scss";
 export default function Video({ selected }) {
   const { image, video } = selected;
 
-  
-
   return (
       <div className="video">
         <video

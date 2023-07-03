@@ -28,11 +28,11 @@ export default function UploadPage() {
     setError(false);
 
 
-    // //Return to homepage
-    // setTimeout(() => {
-    //   setSuccess(true);
-    //   navigate("/");
-    // }, 3000);
+    // Return to homepage
+    setTimeout(() => {
+      setSuccess(true);
+      navigate("/");
+    }, 3000);
 
     setSuccess(true);
   };

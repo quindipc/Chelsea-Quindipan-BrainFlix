@@ -4,7 +4,7 @@ export default function NextVideoItem({ video, getVideoDetails }) {
   const { id, image, title, channel } = video;
 
   return (
-        // Change to the next video when clicked and display it
+    // Change to the next video when clicked and display it
     <div className="nextvideoitem" onClick={() => getVideoDetails(id)}>
       <div className="nextvideoitem__container">
       <video poster={image} className="nextvideoitem__video"></video>

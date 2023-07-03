@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Header.scss";
 
 // Assets
@@ -6,19 +6,11 @@ import brainflixLogo from "../../assets/images/logo/BrainFlix-logo.svg";
 import brainflixAvatar from "../../assets/images/avatar/Mohan-muruge.jpg";
 
 export default function Header() {
-  const navigate = useNavigate(); 
-
-  // Reset to Homepage with the initial video state when clicked
-  const handleHistory = () => {
-    navigate("/");
-  }
-
 
   return (
     <>
-    
     <header className="header">
-      <Link to="/" className="header__logo-index" onClick={handleHistory}>
+      <Link to="/" className="header__logo-index">
         <img
           className="header__logo" 
           src={brainflixLogo}

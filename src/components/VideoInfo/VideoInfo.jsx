@@ -8,7 +8,6 @@ import likesIcon from "../../assets/images/icons/likes.svg";
 import Timestamp from "../Timestamp/Timestamp";
 
 export default function VideoInfo({ activity }) {
-  
   const { channel, timestamp, views, likes } = activity;
 
   return (
