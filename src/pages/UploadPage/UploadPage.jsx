@@ -113,8 +113,6 @@ export default function UploadPage() {
   };
 
   return (
-    <>
-      <Header />
       <div className="upload">
         <hr className="upload__divider--mobile" />
         <h1 className="upload__title">Upload Video</h1>
@@ -178,6 +176,5 @@ export default function UploadPage() {
         )}
         <hr className="upload__divider--form" />
       </div>
-    </>
   );
 }

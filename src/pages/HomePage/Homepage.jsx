@@ -54,7 +54,6 @@ export default function Homepage() {
 
   return (
     <>
-      <Header />
       <Video selected={selectedVideoDetails} />
       <div className="container">
         <div className="main">
