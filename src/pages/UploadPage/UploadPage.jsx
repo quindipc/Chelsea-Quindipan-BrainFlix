@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./UploadPage.scss";
+import axios from "axios";
 
 //Components
 import Header from "../../components/Header/Header";
@@ -27,6 +28,18 @@ export default function UploadPage() {
 
     setError(false);
 
+    const data = {
+      title: title,
+      description: description,
+      thumbnail: thumbnail,
+  };
+
+    //POST request to server
+    axios
+      .post("http://localhost:8000/videos", data)
+      .then((response) => {
+      console.log("Video uploaded!", response.data);
+    });
 
     // Return to homepage
     setTimeout(() => {
@@ -100,16 +113,12 @@ export default function UploadPage() {
             </div>
           </form>
           {showSuccess && (
-                <div className="upload__success">
-                  Upload successful!
-                </div>
+            <div className="upload__success">Upload successful!</div>
           )}
         </div>
         {showSuccess && (
-                <div className="upload__success--desktop">
-                  Upload successful!
-                </div>
-          )}
+          <div className="upload__success--desktop">Upload successful!</div>
+        )}
         <hr className="upload__divider--form" />
       </div>
     </>
