@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./UploadPage.scss";
 import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 
 //Components
 import Header from "../../components/Header/Header";
@@ -12,7 +13,18 @@ import thumbnail from "../../assets/images/thumbnail/Upload-video-preview.jpg";
 export default function UploadPage() {
   const [showSuccess, setSuccess] = useState(false);
   const [showError, setError] = useState(false);
+  const [titleInput, setTitleInput] = useState("");
+  const [descriptionInput, setDescriptionInput] = useState("");
   const navigate = useNavigate();
+  const BASE_URL = "http://localhost:8000/";
+
+  const handleTitleClick = () => {
+    setTitleInput("A Very Cool Title For A Video");
+  };
+
+  const handleDescriptionClick = () => {
+    setDescriptionInput("This is a very cool mock description describing the awesomely amazing and incredibly captivating video. Please don't forget to like, share, and leave your valuable comments on my remarkable video. Your support means a lot to me");
+  };
 
   const publishHandler = (event) => {
     event.preventDefault();
@@ -26,27 +38,65 @@ export default function UploadPage() {
       return;
     }
 
+    if (description.length < 150) {
+      setError(true);
+      return;
+    }
+
     setError(false);
 
+    // Data for POST request
     const data = {
       title: title,
       description: description,
-      thumbnail: thumbnail,
-  };
+      channel: "Chelsea Quindipan",
+      image: "/images/thumbnail.jpg",
+      likes: 1000000,
+      views: 1000000,
+      timestamp: Date.now(),
+      comments: [
+        {
+          id: uuidv4(),
+          name: "Jon Doe",
+          comment:
+            "This video is absolutely amazing! I can't stop watching it. Great job!",
+          likes: 10,
+          timestamp: 1688740879,
+        },
+        {
+          id: uuidv4(),
+          name: "Jane Doe",
+          comment:
+            "I'm so inspired by this video. It's incredibly well-made. Keep up the good work!",
+          likes: 5,
+          timestamp: 1688740879,
+        },
+        {
+          id: uuidv4(),
+          name: "Jonane DoeDoe",
+          comment:
+            "This was a cool video, I guess. I could film one better than this.",
+          likes: 0,
+          timestamp: 1688740877,
+        },
+      ],
+    };
 
     //POST request to server
     axios
-      .post("http://localhost:8000/videos", data)
+      .post(`${BASE_URL}videos`, data)
       .then((response) => {
-      console.log("Video uploaded!", response.data);
-    });
-
-    // Return to homepage
-    setTimeout(() => {
-      setSuccess(true);
-      navigate("/");
-    }, 3000);
-
+        console.log("Video uploaded!", response.data);
+        // Return to homepage
+        setTimeout(() => {
+          setSuccess(true);
+          navigate("/");
+        }, 3000);
+      })
+      .catch((error) => {
+        console.log("Error uploading video:", error);
+        setError(true);
+      });
     setSuccess(true);
   };
 
@@ -87,6 +137,9 @@ export default function UploadPage() {
               type="text"
               name="title"
               placeholder="Add a title to your video"
+              onClick={handleTitleClick}
+              value={titleInput}
+              onChange={(e) => setTitleInput(e.target.value)}
             />
             <label className="upload__label">Add a video description</label>
             <input
@@ -94,10 +147,14 @@ export default function UploadPage() {
               type="text"
               name="description"
               placeholder="Add a description to your video"
+              onClick={handleDescriptionClick}
+              value={descriptionInput}
+              onChange={(e) => setDescriptionInput(e.target.value)}
             />
             {showError && (
               <div className="upload__error">
-                Please fill out all the fields.
+                Please fill out all the fields. Description must be minimum 150
+                characters.
               </div>
             )}
             <hr className="upload__divider--tablet" />
