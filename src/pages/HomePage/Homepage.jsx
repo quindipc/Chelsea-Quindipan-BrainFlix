@@ -10,8 +10,7 @@ import Comments from "../../components/Comments/Comments";
 import NextVideo from "../../components/NextVideo/NextVideo";
 
 export default function Homepage() {
-  const API_KEY = "257751fa-d1f7-4f35-98cc-aaeb7fd20b9a";
-  const BASE_URL = "https://project-2-api.herokuapp.com/";
+  const BASE_URL = "http://localhost:8000/";
 
   const [nextVideos, setNextVideos] = useState([]);
   const [selectedVideoDetails, setSelectedVideoDetails] = useState(null);
@@ -20,7 +19,7 @@ export default function Homepage() {
 
   const getVideoDetails = (videoId) => {
     axios
-      .get(`${BASE_URL}videos/${videoId}?api_key=${API_KEY}`)
+      .get(`${BASE_URL}videos/${videoId}`)
       .then((response) => {
         setSelectedVideoDetails(response.data);
 
@@ -34,10 +33,9 @@ export default function Homepage() {
   
   useEffect(() => {
     axios
-      .get(`${BASE_URL}videos?api_key=${API_KEY}`)
+      .get(`${BASE_URL}videos`)
       .then((response) => {
         setNextVideos(response.data);
-
         // Get initial video details
         if (id) {
           getVideoDetails(id);
