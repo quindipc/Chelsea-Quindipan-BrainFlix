@@ -4,9 +4,6 @@ import "./UploadPage.scss";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 
-//Components
-import Header from "../../components/Header/Header";
-
 //Assets
 import thumbnail from "../../assets/images/thumbnail/Upload-video-preview.jpg";
 
