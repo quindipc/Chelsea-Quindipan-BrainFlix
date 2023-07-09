@@ -67,8 +67,7 @@ export default function UploadPage() {
     //POST request to server
     axios
       .post(`${BASE_URL}videos`, data)
-      .then((response) => {
-        console.log("Video uploaded!", response.data);
+      .then(() => {
         // Return to homepage
         setTimeout(() => {
           setSuccess(true);
@@ -76,7 +75,6 @@ export default function UploadPage() {
         }, 3000);
       })
       .catch((error) => {
-        console.log("Error uploading video:", error);
         setError(true);
       });
     setSuccess(true);
