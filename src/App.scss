@@ -14,6 +14,7 @@
 .main {
   @include desktop {
     display: flex;
+    flex: 0 0 85%;
     flex-direction: column;
     max-width: 66.67%;
     border-right: 0.0625rem solid $mercury;
