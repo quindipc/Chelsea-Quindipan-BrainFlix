@@ -10,18 +10,8 @@ import thumbnail from "../../assets/images/thumbnail/Upload-video-preview.jpg";
 export default function UploadPage() {
   const [showSuccess, setSuccess] = useState(false);
   const [showError, setError] = useState(false);
-  const [titleInput, setTitleInput] = useState("");
-  const [descriptionInput, setDescriptionInput] = useState("");
   const navigate = useNavigate();
   const BASE_URL = "http://localhost:8000/";
-
-  const handleTitleClick = () => {
-    setTitleInput("A Very Cool Title For A Video");
-  };
-
-  const handleDescriptionClick = () => {
-    setDescriptionInput("This is a very cool mock description describing the awesomely amazing and incredibly captivating video. Please don't forget to like, share, and leave your valuable comments on my remarkable video. Your support means a lot to me");
-  };
 
   const publishHandler = (event) => {
     event.preventDefault();
@@ -31,11 +21,6 @@ export default function UploadPage() {
 
     // Error handling for empty fields
     if (title.trim() === "" || description.trim() === "") {
-      setError(true);
-      return;
-    }
-
-    if (description.length < 150) {
       setError(true);
       return;
     }
@@ -132,9 +117,6 @@ export default function UploadPage() {
               type="text"
               name="title"
               placeholder="Add a title to your video"
-              onClick={handleTitleClick}
-              value={titleInput}
-              onChange={(e) => setTitleInput(e.target.value)}
             />
             <label className="upload__label">Add a video description</label>
             <input
@@ -142,14 +124,10 @@ export default function UploadPage() {
               type="text"
               name="description"
               placeholder="Add a description to your video"
-              onClick={handleDescriptionClick}
-              value={descriptionInput}
-              onChange={(e) => setDescriptionInput(e.target.value)}
             />
             {showError && (
               <div className="upload__error">
-                Please fill out all the fields. Description must be minimum 150
-                characters.
+                Please fill out all the fields.
               </div>
             )}
             <hr className="upload__divider--tablet" />
