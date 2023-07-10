@@ -22,7 +22,7 @@ export default function Comments({ comments, setSelectedVideoDetails  }) {
 
     setSelectedVideoDetails((previousState) => ({
       ...previousState,
-      comments: [...previousState.comments, { comment: input, id: uuidv4() }]
+      comments: [...previousState.comments, { name: "Chelsea Quindipan", comment: input, id: uuidv4() }]
     }));
 
     // Clears input state after appending comment
